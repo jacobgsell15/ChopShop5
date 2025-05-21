@@ -4,7 +4,7 @@ from django.db import models
 
 class Order(models.Model):
     location = models.CharField(max_length=120, default="")
-    table = models.CharField(max_length=120)
+    table = models.CharField(max_length=120, default="")
     guests = models.CharField(max_length=120)
     completed = models.BooleanField(default=False)
 
