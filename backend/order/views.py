@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import TodoSerializer
-from .models import Todo
+from .serializers import OrderSerializer
+from .models import Order
 
 # Create your views here.
 
