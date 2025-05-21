@@ -14,7 +14,7 @@ class Order(models.Model):
     location = models.CharField(max_length=120, default="")
     table = models.IntegerField()
     guests = models.IntegerField()
-    itemlist = models.JSONField()
+    itemlist = models.JSONField(default="")
     item = models.ForeignKey(Item, on_delete=models.CASCADE, default="")
     completed = models.BooleanField(default=False)
 
