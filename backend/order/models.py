@@ -6,6 +6,9 @@ class Item(models.Model):
     menu_item = models.CharField(max_length=122,default="")
     price = models.IntegerField()
     guest = models.IntegerField()
+    
+    def _str_(self):
+        return self.title
 
 class Order(models.Model):
     location = models.CharField(max_length=120, default="")
