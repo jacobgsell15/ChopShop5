@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Order(models.Model):
-    location = models.CharField(max_length=120)
+    location = models.CharField(max_length=120, default="")
     table = models.CharField(max_length=120)
     guests = models.CharField(max_length=120)
     completed = models.BooleanField(default=False)
