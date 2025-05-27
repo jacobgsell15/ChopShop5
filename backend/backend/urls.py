@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from order import views
+from order2 import views
 
 router = routers.DefaultRouter()
-router.register(r'orders', views.OrderView, 'order')
+router.register(r'orders2', views.OrderView, 'order2')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
