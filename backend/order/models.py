@@ -17,7 +17,7 @@ class Order(models.Model):
     location = models.IntegerField()
     guests = models.IntegerField()
     item = models.ManyToManyField(Item)
-    completed = models.BooleanField(defabugult=False)
+    completed = models.BooleanField(default=False)
 
     def _str_(self):
         return self.table
