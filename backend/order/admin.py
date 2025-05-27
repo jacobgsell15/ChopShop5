@@ -6,7 +6,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('location','table','guests','itemlist','guestlist','modificationlist','guest','modification','item','completed')
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('menu_item','price','guest')
+    list_display = ('menu_item','price')
 
 # Register your models here.
 
