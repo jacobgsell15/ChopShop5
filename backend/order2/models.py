@@ -5,7 +5,7 @@ from django.db import models
 class Item(models.Model):
     description = models.CharField(max_length=120,default="")
     recipe = models.CharField(max_length=250,default="")
-    modification = models.CharField(250, default="")
+    modification = models.CharField(max_length=250, default="")
     price = models.FloatField()
 
     def _str_(self):
