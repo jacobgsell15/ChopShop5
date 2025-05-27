@@ -18,7 +18,7 @@ class Order(models.Model):
     modificationlist = models.JSONField(default=1)
     guest = models.IntegerField(default=0)
     modification = models.CharField(max_length=250, default=1)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, default="")
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, default=1)
     completed = models.BooleanField(default=False)
 
     def _str_(self):
