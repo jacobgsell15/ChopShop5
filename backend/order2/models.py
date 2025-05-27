@@ -7,6 +7,7 @@ class Item(models.Model):
     recipe = models.CharField(max_length=250,default="")
     modification = models.CharField(max_length=250, default="")
     price = models.FloatField()
+    guest = models.IntegerField()
 
     def _str_(self):
         return self.description
