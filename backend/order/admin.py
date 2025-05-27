@@ -3,10 +3,10 @@ from .models import Order
 from .models import Item
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('location','table','guests','itemlist','guestlist','modificationlist','guest','modification','item','completed')
+    list_display = ('table','location','guests','item','completed')
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('menu_item','price')
+    list_display = ('description','recipe','modification','price')
 
 # Register your models here.
 
