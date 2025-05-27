@@ -15,6 +15,10 @@ class Order(models.Model):
     table = models.IntegerField()
     guests = models.IntegerField()
     itemlist = models.JSONField(default="")
+    guestlist = models.JSONField(default="")
+    modificationlist = models.JSONField(default="")
+    guest = models.IntegerField()
+    modification = models.CharField(max_length=250, default="")
     item = models.ForeignKey(Item, on_delete=models.CASCADE, default="")
     completed = models.BooleanField(default=False)
 
