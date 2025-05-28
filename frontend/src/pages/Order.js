@@ -394,8 +394,9 @@ function Order(){
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
                 })
-            fetchData();
-        }, [])
+        };        
+        fetchData();
+    }, []);
 
     const openOrders = [
         {id:"0",location:"Main Diner",table:"Table 5",guests:"5",alert:"Waiting for Food!",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
