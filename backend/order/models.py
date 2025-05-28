@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 
 class Location(models.Model):
-    id = models.AutoField()
     name = models.CharField(max_length=150)
     tables = models.IntegerField()
     guests = models.IntegerField()
@@ -12,7 +11,7 @@ class Location(models.Model):
         return self.name
 
 class Order(models.Model):
-    id = models.AutoField()
+    id = models.AutoField(primary_key=True)
     location = models.ForeignKey(Location)
     table = models.IntegerField()
     guests = models.IntegerField()
@@ -24,7 +23,7 @@ class Order(models.Model):
         return self.id
 
 class Item(models.Model):
-    id = models.AutoField()
+    id = models.AutoField(primary_key=True)
     description = models.CharField(max_length=120,default="")
     recipe = models.TextField()
     price = models.FloatField()
@@ -33,11 +32,11 @@ class Item(models.Model):
         return self.id
 
 class AddItem(models.Model):
-    id = models.AutoField()
     order = models.ForeignKey(Order)
     item = models.ForeignKey(Item)
     qty = models.IntegerField()
     price = models.FloatField()
+    guest = models.IntegerField()
 
     def _str_(self):
-        return self.id
+        return self.guest
