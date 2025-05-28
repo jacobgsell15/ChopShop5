@@ -13,7 +13,8 @@ class ItemAdmin(admin.ModelAdmin):
 class AddItemAdmin(admin.ModelAdmin):
     list_display = ('id','order','item','qty','price')
 
-class LocationAdmin = ('id','name','tables','guests')
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ('id','name','tables','guests')
 
 # Register your models here.
 
