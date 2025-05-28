@@ -388,17 +388,14 @@ function Order(){
 
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const response = axios.get("/api/orders2/"); // Replace with your API URL
-            setOpenOrds(response.data);
-            console.log(openOrds)
-          } catch (error) {
-            console.error("Error fetching data:", error);
-          }
-        };
-
-        fetchData();
-      }, [])
+            axios
+                .get("/api/orders2/") // Replace with your API URL
+                .then((response) => {setOpenOrds(response.data)})
+                .catch ((error) => {
+                    console.error("Error fetching data:", error);
+                })
+            fetchData();
+        }, [])
 
     const openOrders = [
         {id:"0",location:"Main Diner",table:"Table 5",guests:"5",alert:"Waiting for Food!",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
