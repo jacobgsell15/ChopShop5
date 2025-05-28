@@ -485,7 +485,7 @@ function Order(){
                     <b>Open Orders</b>
                 </div>
                 <div style={OrdersListDiv}>
-                {openOrders.map((order) => (
+                {openOrds.map((order) => (
                     <>
                         <OrderListRow key={order.id} order={order} />
                     </>
