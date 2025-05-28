@@ -15,7 +15,7 @@ class Order(models.Model):
     location = models.ForeignKey(Location, on_delete=models.SET_NULL)
     table = models.IntegerField()
     guests = models.IntegerField()
-    total = FloatField(default = 0.00)
+    total = FloatField()
     finalized_list = models.JSONField()
     completed = BooleanField()
 
@@ -32,8 +32,8 @@ class Item(models.Model):
         return self.id
 
 class AddItem(models.Model):
-    order = models.ForeignKey(Order)
-    item = models.ForeignKey(Item)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.SET_NULL)
     qty = models.IntegerField()
     price = models.FloatField()
     guest = models.IntegerField()
