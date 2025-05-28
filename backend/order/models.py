@@ -15,9 +15,9 @@ class Order(models.Model):
     location = models.ForeignKey(Location, on_delete=models.SET_NULL)
     table = models.IntegerField()
     guests = models.IntegerField()
-    total = FloatField()
+    total = models.FloatField()
     finalized_list = models.JSONField()
-    completed = BooleanField()
+    completed = models. BooleanField()
 
     def _str_(self):
         return self.id
