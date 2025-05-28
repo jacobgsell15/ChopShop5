@@ -2,6 +2,15 @@ from django.db import models
 
 # Create your models here.
 
+class Location(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=150)
+    tables = models.IntegerField()
+    guests = models.IntegerField()
+
+    def _str_(self):
+        return self.id
+
 class Order(models.Model):
     id = models.AutoField()
     location = models.ForeignKey(Location)
@@ -32,9 +41,3 @@ class AddItem(models.Model):
 
     def _str_(self):
         return self.id
-
-class Location(models.Model):
-    id = models.AutoField()
-    name = models.CharField(max_length=150)
-    tables = models.IntegerField()
-    guests = models.IntegerField()
