@@ -9,7 +9,7 @@ class Location(models.Model):
     guests = models.IntegerField()
 
     def _str_(self):
-        return self.id
+        return self.name
 
 class Order(models.Model):
     id = models.AutoField()
