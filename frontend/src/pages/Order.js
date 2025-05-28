@@ -391,7 +391,7 @@ function Order(){
           try {
             const response = axios.get("/api/orders2/"); // Replace with your API URL
             setOpenOrds(response.data);
-            console.log("success")
+            console.log(openOrds)
           } catch (error) {
             console.error("Error fetching data:", error);
           }
