@@ -12,7 +12,7 @@ class Location(models.Model):
 
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
-    location = models.ForeignKey(Location, on_delete=models.SET_NULL)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
     table = models.IntegerField()
     guests = models.IntegerField()
     total = models.FloatField()
@@ -33,7 +33,7 @@ class Item(models.Model):
 
 class AddItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    item = models.ForeignKey(Item, on_delete=models.SET_NULL)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
     qty = models.IntegerField()
     price = models.FloatField()
     guest = models.IntegerField()
