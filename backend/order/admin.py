@@ -4,6 +4,9 @@ from .models import Item
 from .models import AddItem
 from .models import Location
 
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ('id','name','tables','guests')
+
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id','location','table','guests','total','finalized_list','completed')
 
@@ -13,12 +16,11 @@ class ItemAdmin(admin.ModelAdmin):
 class AddItemAdmin(admin.ModelAdmin):
     list_display = ('id','order','item','qty','price')
 
-class LocationAdmin(admin.ModelAdmin):
-    list_display = ('id','name','tables','guests')
 
 # Register your models here.
 
+
+admin.site.register(Location,LocationAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(AddItem,AddItemAdmin)
-admin.site.register(Location,LocationAdmin)

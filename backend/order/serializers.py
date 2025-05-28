@@ -4,6 +4,12 @@ from .models import Item
 from .models import AddItem
 from .models import Location
 
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = ('id','name','tables','guests')
+
+
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
@@ -18,8 +24,3 @@ class AddItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = AddItem
         fields = ('id','order','item','qty','price')
-
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Location
-        fields = ('id','name','tables','guests')

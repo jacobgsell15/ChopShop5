@@ -11,6 +11,10 @@ from .models import Location
 
 # Create your views here.
 
+class LocationView(viewsets.ModelViewSet):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.all()
+
 class OrderView(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
@@ -22,9 +26,5 @@ class ItemView(viewsets.ModelViewSet):
 class AddItemView(viewsets.ModelViewSet):
     serializer_class = AddItemSerializer
     queryset = AddItem.objects.all()
-
-class LocationView(viewsets.ModelViewSet):
-    serializer_class = LocationSerializer
-    queryset = Location.objects.all()
 
 # Create your views here.from django.shortcuts import render
