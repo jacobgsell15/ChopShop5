@@ -6,7 +6,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ('table','location','guests','get_items','completed')
     
     def get_items(self, obj):  # Define your custom function
-        items = obj.items.all()
+        items = obj.item.all()
         return ", ".join([item.description for item in items])  # Format the related data
 
     get_items.short_description = "Items"  # Optional: Set a descriptive label
