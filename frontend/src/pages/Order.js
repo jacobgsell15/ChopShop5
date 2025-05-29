@@ -402,7 +402,7 @@ function Order(){
                 .get("/api/locations/")
                 .then((response) => {setLocs(response.data)})
                 .catch ((eror) => {
-                    console.error("Error fetching data:", error)
+                    console.error("Error fetching data:", eror)
                 })
         };        
         fetchData();
