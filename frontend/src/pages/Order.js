@@ -504,7 +504,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} onClick={setCurrOrd(order)} order={order} location={locs[order.location - 1]}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]}/>
                     </>
                 ))}
                 </div>
