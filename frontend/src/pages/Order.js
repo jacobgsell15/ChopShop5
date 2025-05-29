@@ -379,7 +379,7 @@ function OrderListRow(props){
         <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
-            <b style={ListRowB2}>{props.location.name}</b>
+            <b style={ListRowB2}>DIY</b>
         </div>
     )
 }
