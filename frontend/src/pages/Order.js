@@ -240,7 +240,7 @@ const EditOrderBottomRowDiv = {
                     />
                     </label>
                 </div>
-                {props.curr.items.map((item) => (
+                {props.menu.map((item) => (
                     <>
                     <EditOrderRow key={item.id} item={item} />
                     </>
@@ -470,7 +470,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]}/>
+                        <OrderListRow onclick={setCurrOrd(order)} key={order.id} order={order} location={locs[order.location - 1]}/>
                     </>
                 ))}
                 </div>
