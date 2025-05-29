@@ -391,7 +391,7 @@ function Order(){
     const [locs,setLocs] = useState([])
 
     function openOrder(props){
-        setCurrOrd(props.order)
+        setCurrOrd(props.order);
     }
 
     useEffect(() => {
