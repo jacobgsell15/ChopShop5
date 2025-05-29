@@ -376,7 +376,7 @@ function OrderListRow(props){
     console.log(props.order);
     console.log(props.location);
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={setCurrOrd(props.order)}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={openOrder(props.order)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -386,9 +386,13 @@ function OrderListRow(props){
 
 function Order(){
     const [currOrd,setCurrOrd] = useState([])
-    const [items,setItems] = userState([])
+    const [items,setItems] = useState([])
     const [openOrds,setOpenOrds] = useState([])
     const [locs,setLocs] = useState([])
+
+    function openOrder(props){
+        setCurrOrd(props.order)
+    }
 
     useEffect(() => {
         const fetchData = async () => {
