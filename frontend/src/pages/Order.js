@@ -373,11 +373,13 @@ function OrderListRow(props){
         fontSize:"11pt",
         paddingLeft:"10px"
     }
+    console.log(props.order);
+    console.log(props.location);
     return (
         <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
-            <b style={ListRowB2}>{props.order.location}</b>
+            <b style={ListRowB2}>{props.location.name}</b>
         </div>
     )
 }
@@ -385,6 +387,7 @@ function OrderListRow(props){
 function Order(){
 
     const [openOrds,setOpenOrds] = useState([])
+    const [locs,setLocs] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -393,6 +396,13 @@ function Order(){
                 .then((response) => {setOpenOrds(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
+                })
+            
+            axios
+                .get("/api/locations/")
+                .then((response) => {setLocs(response.data)})
+                .catch ((eror) => {
+                    console.error("Error fetching data:", error)
                 })
         };        
         fetchData();
@@ -485,7 +495,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} />
+                        <OrderListRow key={order.id} order={order} location={locs[order.location]}/>
                     </>
                 ))}
                 </div>
