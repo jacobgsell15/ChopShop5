@@ -318,7 +318,7 @@ function OrderLocationElement(props){
     return (
         <div style={LocationDiv}>
             <div style={LocationHeadingDiv}>
-                <div style={LocationHeadingH}><b>{props.location.location}</b></div>
+                <div style={LocationHeadingH}><b>{props.location.name}</b></div>
                 <button style={SubmitButton}>New Order</button>            
             </div>
             <div style={LocationInfoDiv}>
@@ -376,7 +376,7 @@ function OrderListRow(props){
     console.log(props.order);
     console.log(props.location);
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={setCurrOrd(props.order)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -385,7 +385,8 @@ function OrderListRow(props){
 }
 
 function Order(){
-
+    const [currOrd,setCurrOrd] = useState([])
+    const [items,setItems] = userState([])
     const [openOrds,setOpenOrds] = useState([])
     const [locs,setLocs] = useState([])
 
@@ -401,6 +402,13 @@ function Order(){
             axios
                 .get("/api/locations/")
                 .then((response) => {setLocs(response.data)})
+                .catch ((eror) => {
+                    console.error("Error fetching data:", eror)
+                })
+
+            axios
+                .get("/api/items/")
+                .then((response) => {setItems(response.data)})
                 .catch ((eror) => {
                     console.error("Error fetching data:", eror)
                 })
@@ -501,7 +509,7 @@ function Order(){
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrder} menu={menu}/>
+            <EditOrder curr={currOrd} menu={items}/>
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
