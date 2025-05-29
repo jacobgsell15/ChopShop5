@@ -417,40 +417,6 @@ function Order(){
         fetchData();
     }, []);
 
-    const openOrders = [
-        {id:"0",location:"Main Diner",table:"Table 5",guests:"5",alert:"Waiting for Food!",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"1",location:"Outdoor Patio",table:"Table 3",guests:"2",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"2",location:"Main Diner",table:"Table 3",guests:"3",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-    ]
-    
-    const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
-        {id:"0", item: 'Cowboy Burger', modifications:'NO LETTUCE', guest:'2'},
-        {id:"1", item: 'Sprite', modifications:'',guest:'1'},
-        {id:"2", item: 'Chef Salad',modifications:'',guest:'2'}
-        ]
-    }
-    
-    const locations = [
-        {id:"0",location:"Main Diner",tables:10,avail:8,dining:1,waiting:1,guests:8,staff:4},
-        {id:"1",location:"Outdoor Patio",tables:5,avail:4,dining:1,waiting:0,guests:3,staff:2},
-        {id:"2",location:"Bartop",tables:5,avail:4,dining:1,waiting:0,guests:2,staff:2},
-    ]
-
-    const menu = [
-        {id:"0",title:"Classic Burger"},
-        {id:"1",title:"American Burger"},
-        {id:"2",title:"Cowboy Burger"},
-        {id:"3",title:"Cheese Pizza"},
-        {id:"4",title:"Chef Salad"},
-        {id:"5",title:"Wedge Salad"},
-        {id:"6",title:"Cobb Salad"},
-        {id:"7",title:"Cheese Pizza"},
-        {id:"8",title:"Mea Lovers Pizza"},
-        {id:"9",title:"Soft Drink"},
-        {id:"10",title:"Water"},
-        {id:"11",title:"Standard Renters Insurance"},
-    ]
     const HouseDiv = {
         backgroundImage:"linear-gradient( rgba(9,9,93,.7), rgba(9,9,93,.2), rgba(9,9,93,.7))",
         padding:"30px 5% 30px 5%",
@@ -504,7 +470,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} onClick={setCurrOrd(order)} order={order} location={locs[order.location - 1]}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]}/>
                     </>
                 ))}
                 </div>
