@@ -389,7 +389,7 @@ function Order(){
     useEffect(() => {
         const fetchData = async () => {
             axios
-                .get("/api/orders2/") // Replace with your API URL
+                .get("/api/orders/") // Replace with your API URL
                 .then((response) => {setOpenOrds(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
