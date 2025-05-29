@@ -21,6 +21,9 @@ from order import views
 
 router = routers.DefaultRouter()
 router.register(r'orders', views.OrderView, 'order')
+router.register(r'items', views.ItemView, 'item')
+router.register(r'additems',views.AddItemView, 'additem')
+router.register(r'locations',views.LocationView, 'location')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
