@@ -510,7 +510,7 @@ function Order(){
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrd} menu={menu}/>
+            <EditOrder curr={currOrder} menu={menu}/>
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
