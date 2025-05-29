@@ -373,11 +373,12 @@ function OrderListRow(props){
         fontSize:"11pt",
         paddingLeft:"10px"
     }
+    const location = props.location;
     return (
         <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
-            <b style={ListRowB2}>{props.order.location.name}</b>
+            <b style={ListRowB2}>{location.name}</b>
         </div>
     )
 }
