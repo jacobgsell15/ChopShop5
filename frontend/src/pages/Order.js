@@ -504,9 +504,9 @@ function Order(){
             <EditOrder curr={currOrder} menu={menu}/>
             </>
             <div style={LocationsHouseDiv}>
-                {locations.map((location) => (
+                {locs.map((location) => (
                     <>
-                        <OrderLocationElement key={location.id} location={location} orders={openOrders} />
+                        <OrderLocationElement key={location.id} location={location} orders={openOrds} />
                     </>
                 ))}
             </div>
