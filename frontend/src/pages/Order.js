@@ -374,6 +374,8 @@ function OrderListRow(props){
         paddingLeft:"10px"
     }
     const location = axios.get("/api/locations/"+props.order.location);
+    console.log(location)
+    console.log(props)
     return (
         <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
