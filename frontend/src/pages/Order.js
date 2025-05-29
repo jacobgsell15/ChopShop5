@@ -449,7 +449,7 @@ function Order(){
         {id:"8",title:"Mea Lovers Pizza"},
         {id:"9",title:"Soft Drink"},
         {id:"10",title:"Water"},
-        {id:"11",title:"Standard Renters Insurance"},
+        {id:"11",title:"Standrd Renters Insurance"},
     ]
     const HouseDiv = {
         backgroundImage:"linear-gradient( rgba(9,9,93,.7), rgba(9,9,93,.2), rgba(9,9,93,.7))",
