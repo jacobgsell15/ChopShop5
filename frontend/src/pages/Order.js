@@ -510,7 +510,8 @@ function Order(){
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrd} menu={menu}/>
+            {(currOrd === null) && <EditOrder menu={menu} />}
+            {(currOrd != null) && <EditOrder curr={currOrd} menu={menu}/>}
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
