@@ -482,6 +482,10 @@ function Order(){
         backgroundColor:"rgba(0,0,0,0)",
         float:"left"
     }
+
+    const handleClick = (props) => {
+      setCurrOrd(props.order);
+    };
     
     return (    
         <div style={HouseDiv}>
@@ -492,7 +496,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={setCurrOrd(order)}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={handleClick(order)}/>
                     </>
                 ))}
                 </div>
