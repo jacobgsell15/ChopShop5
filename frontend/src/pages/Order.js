@@ -510,7 +510,7 @@ function Order(){
                 </div>
             </div>
             <>
-            {(currOrder != null) &&
+            {(currOrder != []) &&
                 <EditOrder curr={currOrd} menu={menu}/>
             }
             </>
