@@ -226,7 +226,7 @@ const EditOrderBottomRowDiv = {
                     <input 
                         type="text" 
                         name="table" 
-                        value={inputs.table || props.curr.table || ""} 
+                        value={inputs.table || props.workorder.table || ""} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -235,7 +235,7 @@ const EditOrderBottomRowDiv = {
                     <input 
                         type="number" 
                         name="guests" 
-                        value={inputs.guests || props.curr.guests || ""} 
+                        value={inputs.guests || props.workorder.guests || ""} 
                         style={EditOrderSubHeadingInput1}
                         onChange={handleChange}
                     />
@@ -417,13 +417,6 @@ function Order(){
         };        
         fetchData();
     }, []);
-
-    const openOrders = [
-        {id:"0",location:"Main Diner",table:"Table 5",guests:"5",alert:"Waiting for Food!",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"1",location:"Outdoor Patio",table:"Table 3",guests:"2",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"2",location:"Main Diner",table:"Table 3",guests:"3",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-        {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:['Cowboy Burger','Sprite','Chef Salad'],modifications:['NO LETTUCE','none','none'],guest:['1','1','2']},
-    ]
     
     const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
         {id:"0", item: 'Cowboy Burger', modifications:'NO LETTUCE', guest:'2'},
@@ -431,12 +424,6 @@ function Order(){
         {id:"2", item: 'Chef Salad',modifications:'',guest:'2'}
         ]
     }
-    
-    const locations = [
-        {id:"0",location:"Main Diner",tables:10,avail:8,dining:1,waiting:1,guests:8,staff:4},
-        {id:"1",location:"Outdoor Patio",tables:5,avail:4,dining:1,waiting:0,guests:3,staff:2},
-        {id:"2",location:"Bartop",tables:5,avail:4,dining:1,waiting:0,guests:2,staff:2},
-    ]
 
     const menu = [
         {id:"0",title:"Classic Burger"},
@@ -511,7 +498,7 @@ function Order(){
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrder} menu={menu} />
+            <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
