@@ -159,6 +159,7 @@ function EditOrder(props){
         alert(inputs + selectedValue);
     }
 
+    console.log(props.curr)
     const EditOrderDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
@@ -510,9 +511,7 @@ function Order(){
                 </div>
             </div>
             <>
-            {(currOrder != []) &&
-                <EditOrder curr={currOrd} menu={menu}/>
-            }
+            <EditOrder curr={currOrd} menu={menu} />
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
