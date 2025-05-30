@@ -498,7 +498,7 @@ function Order(){
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrd} menu={menu} />
+            <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
