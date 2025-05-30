@@ -377,7 +377,7 @@ function OrderListRow(props){
     console.log(props.order);
     console.log(props.location);
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={setCurrOrd(props.order)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -492,7 +492,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} workingorder={currOrd}/>
                     </>
                 ))}
                 </div>
