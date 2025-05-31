@@ -342,7 +342,7 @@ function OrderLocationElement(props){
         <div style={LocationDiv}>
             <div style={LocationHeadingDiv}>
                 <div style={LocationHeadingH}><b>{props.location.name}</b></div>
-                <button style={SubmitButton}>New Order</button>            
+                <button style={SubmitButton} onClick={props.onClick}>New Order</button>            
             </div>
             <div style={LocationInfoDiv}>
                 <div style={LocationInfoCol}>
@@ -539,7 +539,7 @@ function Order(){
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
                     <>
-                        <OrderLocationElement key={location.id} location={location} orders={openOrds} />
+                        <OrderLocationElement key={location.id} location={location} orders={openOrds} onClick={(event) => handleToggle(event)}/>
                     </>
                 ))}
             </div>
