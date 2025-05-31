@@ -159,7 +159,7 @@ function EditOrder(props){
         alert(inputs + selectedValue);
     }
 
-    console.log(props.curr)
+    console.log(props.workorder)
     const EditOrderDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
