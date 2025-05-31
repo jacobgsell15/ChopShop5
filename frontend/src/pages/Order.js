@@ -169,10 +169,6 @@ function EditOrder(props){
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
                 })
-            allAdd.map((add) => {
-                if(add.order === props.order.id) setAddItems(...addItems,add);
-            }
-    )
         };        
         fetchData();
     }, []);
