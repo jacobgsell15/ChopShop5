@@ -375,7 +375,7 @@ function OrderListRow(props){
         paddingLeft:"10px"
     }
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={props.onClick(props.order.id)}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={props.onClick}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -504,7 +504,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={handleToggle}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={handleToggle(order.id)}/>
                     </>
                 ))}
                 </div>
