@@ -420,6 +420,7 @@ function Order(){
     }, []);
 
     const handleToggle = () => {
+        console.log(toggleComp);
         if(toggleComp === true) setToggleComp(false);
         else setToggleComp(true);
     }
