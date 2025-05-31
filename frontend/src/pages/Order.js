@@ -419,9 +419,9 @@ function Order(){
         fetchData();
     }, []);
 
-    const handleToggle = () => {
+    const handleToggle = (event) => {
         console.log(toggleComp);
-        if(toggleComp === true) setToggleComp(false);
+        if(toggleComp) setToggleComp(false);
         else setToggleComp(true);
     }
     
@@ -496,17 +496,20 @@ function Order(){
                 <div style={OrdersH}>
                     <b>Open Orders</b>
                 </div>
+
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={(event) => handleToggle()}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={(event) => handleToggle(event)}/>
                     </>
                 ))}
                 </div>
             </div>
+
             <>
             {toggleComp && <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />}
             </>
+
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
                     <>
@@ -514,6 +517,7 @@ function Order(){
                     </>
                 ))}
             </div>
+
         </div>
     )
 }
