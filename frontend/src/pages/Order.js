@@ -346,7 +346,7 @@ function OrderLocationElement(props){
     )
 }
 
-function OrderListRow(props){    
+function OrderListRow(props,{onClick}){    
     const [isHovering, setIsHovering] = useState(false);
     const OrderListRowDiv = {
         borderBottom:"1px solid #C5C5C5",
@@ -374,10 +374,8 @@ function OrderListRow(props){
         fontSize:"11pt",
         paddingLeft:"10px"
     }
-    console.log(props.order);
-    console.log(props.location);
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={onClick}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -500,7 +498,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={(event) => handleToggle(event)}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={handleToggle}/>
                     </>
                 ))}
                 </div>
