@@ -448,7 +448,8 @@ function Order(){
         else{
             setToggleComp(true)};
             console.log(order)
-            setCurrOrd(order);
+            if(order === "blank") setCurrOrd([]);
+            else setCurrOrd(order);
     }
     
     const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
@@ -539,7 +540,7 @@ function Order(){
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
                     <>
-                        <OrderLocationElement key={location.id} location={location} orders={openOrds} onClick={(event) => handleToggle(event)}/>
+                        <OrderLocationElement key={location.id} location={location} orders={openOrds} onClick={(event) => handleToggle(event,"blank")}/>
                     </>
                 ))}
             </div>
