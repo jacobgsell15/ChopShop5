@@ -144,7 +144,7 @@ function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
-    const [addItems, settAddItems] = useState([]);
+    const [addItems, setAddItems] = useState([]);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -170,7 +170,7 @@ function EditOrder(props){
                     console.error("Error fetching data:", error);
                 })
             allAdd.map((add) => {
-                if(add.order === props.order.id) settAddItems(...addItems,add);
+                if(add.order === props.order.id) setAddItems(...addItems,add);
             }
     )
         };        
@@ -233,6 +233,8 @@ const EditOrderBottomRowDiv = {
     height:"50px", 
     padding:"5px 0px 0px 5%"  
 }
+
+    console.log(allAdd);
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
