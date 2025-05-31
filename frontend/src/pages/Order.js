@@ -102,7 +102,7 @@ const DeleteButton = {
             <input
                 type="text"
                 name="modifications"
-                value={inputs.modifications || props.item.modifications || "Add Modification"}
+                value={inputs.modifications || "Add Modification"}
                 style={EditOrderRowInput1}
                 onChange={handleChange}
             />
@@ -143,6 +143,8 @@ const DeleteButton = {
 function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [selectedValue, setSelectedValue] = useState('');
+    const [allAdd, setAllAdd] = useState([]);
+    const [addItems, settAddItems] = useState([]);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -158,6 +160,23 @@ function EditOrder(props){
         //event.preventDefaults();
         alert(inputs + selectedValue);
     }
+
+        useEffect(() => {
+        const fetchData = async () => {
+            axios
+                .get("/api/addItems/") // Replace with your API URL
+                .then((response) => {setAllAdd(response.data)})
+                .catch ((error) => {
+                    console.error("Error fetching data:", error);
+                })
+        };        
+        fetchData();
+    }, []);
+
+    allAdd.map((add) => {
+        if(add.order === props.order.id) settAddItems(...addItems,add);
+        }
+    )
 
     console.log(props.workorder)
     const EditOrderDiv = {
@@ -241,7 +260,7 @@ const EditOrderBottomRowDiv = {
                     />
                     </label>
                 </div>
-                {props.curr.items.map((item) => (
+                {props.addItems.map((item) => (
                     <>
                     <EditOrderRow key={item.id} item={item} />
                     </>
