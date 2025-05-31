@@ -386,6 +386,7 @@ function OrderListRow(props){
 }
 
 function Order(){
+    const [toggleComp,setToggleComp] = useState(false)
     const [currOrd,setCurrOrd] = useState([])
     const [items,setItems] = useState([])
     const [openOrds,setOpenOrds] = useState([])
@@ -417,6 +418,11 @@ function Order(){
         };        
         fetchData();
     }, []);
+
+    const handleToggle = () => {
+        if(setToggleComp === true) setToggleComp(false);
+        else setToggleComp(true);
+    }
     
     const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
         {id:"0", item: 'Cowboy Burger', modifications:'NO LETTUCE', guest:'2'},
@@ -492,13 +498,13 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={fetchData()}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={handleToggle()}/>
                     </>
                 ))}
                 </div>
             </div>
             <>
-            <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />
+            {toggleComp && <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />}
             </>
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
