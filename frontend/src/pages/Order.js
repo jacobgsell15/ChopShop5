@@ -144,7 +144,6 @@ function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
-    const [addItems, setAddItems] = useState([]);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -257,7 +256,7 @@ const EditOrderBottomRowDiv = {
                     />
                     </label>
                 </div>
-                {props.addItems.map((item) => (
+                {props.allAdd.map((item) => (
                     <>
                     <EditOrderRow key={item.id} item={item} />
                     </>
