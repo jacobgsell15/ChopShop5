@@ -96,7 +96,7 @@ const DeleteButton = {
     <>        
         <div style={EditOrderRowDiv}>
         <div style={EditOrderRowLDiv}>
-            <b style={EditOrderRowH}>{props.item.item}</b>
+            <b style={EditOrderRowH}>{props.product.description}</b>
         <br />
             <label style={EditOrderRowH}>
             <input
@@ -265,7 +265,7 @@ const EditOrderBottomRowDiv = {
                 </div>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} /> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item-1]}/> }
                     </>
                 ))}
                 <div style={EditOrderBottomRowDiv}>
