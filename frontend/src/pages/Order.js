@@ -419,8 +419,8 @@ function Order(){
         fetchData();
     }, []);
 
-    const handleToggle = (event) => {
-        if(setToggleComp === true) setToggleComp(false);
+    const handleToggle = () => {
+        if(toggleComp === true) setToggleComp(false);
         else setToggleComp(true);
     }
     
