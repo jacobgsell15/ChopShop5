@@ -265,7 +265,7 @@ const EditOrderBottomRowDiv = {
                 </div>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item-1]}/> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item]}/> }
                     </>
                 ))}
                 <div style={EditOrderBottomRowDiv}>
@@ -526,7 +526,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location-1]} onClick={(event) => handleToggle(event, order)}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location]} onClick={(event) => handleToggle(event, order)}/>
                     </>
                 ))}
                 </div>
