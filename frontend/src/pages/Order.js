@@ -144,6 +144,7 @@ function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
+    const [items, setItems] = 
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -167,6 +168,12 @@ function EditOrder(props){
                 .then((response) => {setAllAdd(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
+                })
+            axios
+                .get("api/items/")
+                .then((response) => {setItems(response.data)})
+                .catch ((error) => {
+                    console.error("Error fetching data:", error)
                 })
         };        
         fetchData();
@@ -266,8 +273,8 @@ const EditOrderBottomRowDiv = {
                     Choose an Item:
                     <select value={selectedValue} onChange={handleSelect}>
                         <option value="">Select a Menu Item</option>
-                        {props.menu.map((product) => (
-                        <option key={product.id} value={product.title}>{product.title}</option>
+                        {items.map((product) => (
+                        <option key={product.id} value={product.description}>{product.description}</option>
                         ))}
                     </select>
                 </label>
