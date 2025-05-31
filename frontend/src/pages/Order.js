@@ -375,7 +375,7 @@ function OrderListRow(props){
         paddingLeft:"10px"
     }
     return (
-        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={props.onClick}>
+        <div style={OrderListRowDiv} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={props.onClick(props.order.id)}>
             <b style={ListRowB1}>Table {props.order.table}</b><b style={ListRowB1v2}>Guests: {props.order.guests}</b>
             <br />
             <b style={ListRowB2}>{props.location.name}</b>
@@ -417,10 +417,16 @@ function Order(){
         fetchData();
     }, []);
 
-    const handleToggle = (event) => {
+    const handleToggle = (event, order) => {
         console.log(toggleComp);
-        if(toggleComp) setToggleComp(false);
-        else setToggleComp(true);
+        if(toggleComp){
+             setToggleComp(false);
+             //setCurrOrd([]);
+        }
+        else{
+            setToggleComp(true)};
+            console.log(order)
+            //setCurrOrd(order);
     }
     
     const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
