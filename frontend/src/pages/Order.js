@@ -144,7 +144,7 @@ function EditOrder(props){
     const [inputs,setInputs] = useState({});
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
-    const [items, setItems] = 
+    const [items, setItems] = useState([]);
 
     const handleChange = (event) => {
         const name = event.target.name;
