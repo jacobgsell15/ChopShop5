@@ -256,9 +256,9 @@ const EditOrderBottomRowDiv = {
                     />
                     </label>
                 </div>
-                {props.allAdd.map((item) => (
+                {allAdd.map((item) => (
                     <>
-                    <EditOrderRow key={item.id} item={item} />
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} /> }
                     </>
                 ))}
                 <div style={EditOrderBottomRowDiv}>
