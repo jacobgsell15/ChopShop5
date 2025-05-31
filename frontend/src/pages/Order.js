@@ -419,7 +419,7 @@ function Order(){
         fetchData();
     }, []);
 
-    const handleToggle = () => {
+    const handleToggle = (event) => {
         if(setToggleComp === true) setToggleComp(false);
         else setToggleComp(true);
     }
@@ -498,7 +498,7 @@ function Order(){
                 <div style={OrdersListDiv}>
                 {openOrds.map((order) => (
                     <>
-                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={() => handleToggle()}/>
+                        <OrderListRow key={order.id} order={order} location={locs[order.location - 1]} onClick={(event) => handleToggle(event)}/>
                     </>
                 ))}
                 </div>
