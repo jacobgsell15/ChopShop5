@@ -421,12 +421,12 @@ function Order(){
         console.log(toggleComp);
         if(toggleComp){
              setToggleComp(false);
-             //setCurrOrd([]);
+             setCurrOrd([]);
         }
         else{
             setToggleComp(true)};
             console.log(order)
-            //setCurrOrd(order);
+            setCurrOrd(order);
     }
     
     const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
