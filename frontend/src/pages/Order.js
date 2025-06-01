@@ -14,9 +14,9 @@ const handleChange = (event) => {
 }
 
 const handleUpdate = (event) => {
-    if (item.id) {
+    if (addItem.id === props.item.id) {
       axios
-        .put(`/api/additems/${props.item.id}/`, item)
+        .put(`/api/additems/${addItem.id}/`, addItem)
         .then((res) => this.refreshList());
       return;
     }
