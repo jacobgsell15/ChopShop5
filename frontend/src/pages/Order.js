@@ -142,7 +142,7 @@ console.log(props.product);
                 name="qty"
                 value={inputs.qty || props.item.qty || ""}
                 style={EditOrderRowInput2}
-                onChange={handleChange}
+                onChange={(event) => handleChange(event)}
             />
             </label>
         </div>
