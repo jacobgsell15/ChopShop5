@@ -92,11 +92,12 @@ const DeleteButton = {
     padding:"0px",
     fontSize:"12px"
 }
+console.log(props.product);
     return (
     <>        
         <div style={EditOrderRowDiv}>
         <div style={EditOrderRowLDiv}>
-            <b style={EditOrderRowH}>{props.product.item}</b>
+            <b style={EditOrderRowH}>{props.item.item}</b>
         <br />
             <label style={EditOrderRowH}>
             <input
