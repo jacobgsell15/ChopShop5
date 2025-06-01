@@ -17,6 +17,9 @@ const handleUpdate = (event) => {
     if (addItem.id === props.item.id) {
       axios
         .put(`/api/additems/${addItem.id}/`, addItem)
+        .catch ((error) => {
+            console.error("Error fetching data:", error)
+        })
         .then((res) => this.refreshList());
       return;
     }
