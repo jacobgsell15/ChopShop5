@@ -97,7 +97,7 @@ console.log(props.product);
     <>        
         <div style={EditOrderRowDiv}>
         <div style={EditOrderRowLDiv}>
-            <b style={EditOrderRowH}>{props.item.item}</b>
+            <b style={EditOrderRowH}>{props.product.description}</b>
         <br />
             <label style={EditOrderRowH}>
             <input
