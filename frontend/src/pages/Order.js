@@ -96,7 +96,7 @@ const DeleteButton = {
     <>        
         <div style={EditOrderRowDiv}>
         <div style={EditOrderRowLDiv}>
-            <b style={EditOrderRowH}>{props.product.description}</b>
+            <b style={EditOrderRowH}>{props.product.item}</b>
         <br />
             <label style={EditOrderRowH}>
             <input
