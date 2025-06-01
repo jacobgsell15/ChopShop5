@@ -5,12 +5,14 @@ import axios from 'axios'
 function EditOrderRow(props){
 const [inputs,setInputs] = useState({});
 const [addItem,setAddItem] = useState(props.item);
+console.log(props.item);
 
 const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values,[name]:value}))
     setAddItem(values => ({...values,[name]:value}))
+    console.log(addItem);
 }
 
 const handleUpdate = (event) => {
