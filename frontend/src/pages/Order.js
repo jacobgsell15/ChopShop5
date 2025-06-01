@@ -130,7 +130,7 @@ console.log(props.product);
             <input
                 type="text"
                 name="guest"
-                value={inputs.guest || props.item.guest || ""}
+                value={inputs.guest || addItem.guest || ""}
                 style={EditOrderRowInput2}
                 onChange={handleChange}
             />
@@ -140,7 +140,7 @@ console.log(props.product);
             <input
                 type="text"
                 name="qty"
-                value={inputs.qty || props.item.qty || ""}
+                value={inputs.qty || addItem.qty || ""}
                 style={EditOrderRowInput2}
                 onChange={(event) => handleChange(event)}
             />
