@@ -22,7 +22,7 @@ const handleUpdate = (event) => {
         .catch ((error) => {
             console.error("Error fetching data:", error)
         })
-        .then((res) => this.refreshList());
+        //.then((res) => this.refreshList());
       return;
     }
 }
