@@ -415,19 +415,19 @@ function Order(){
 
 
     useEffect(() => {
-        const fetchData = async () => {
-            axios
-                .get("/api/orders/") // Replace with your API URL
-                .then((response) => {setOpenOrds(response.data)})
-                .catch ((error) => {
-                    console.error("Error fetching data:", error);
-                })
-            
+        const fetchData = async () => {            
             axios
                 .get("/api/locations/")
                 .then((response) => {setLocs(response.data)})
                 .catch ((eror) => {
                     console.error("Error fetching data:", eror)
+                })
+
+            axios
+                .get("/api/orders/") // Replace with your API URL
+                .then((response) => {setOpenOrds(response.data)})
+                .catch ((error) => {
+                    console.error("Error fetching data:", error);
                 })
 
             axios
