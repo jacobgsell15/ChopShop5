@@ -165,16 +165,17 @@ function EditOrder(props){
         useEffect(() => {
         const fetchData = async () => {
             axios
-                .get("/api/additems/") // Replace with your API URL
-                .then((response) => {setAllAdd(response.data)})
-                .catch ((error) => {
-                    console.error("Error fetching data:", error);
-                })
-            axios
                 .get("api/items/")
                 .then((response) => {setItems(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error)
+                })
+                
+            axios
+                .get("/api/additems/") // Replace with your API URL
+                .then((response) => {setAllAdd(response.data)})
+                .catch ((error) => {
+                    console.error("Error fetching data:", error);
                 })
         };        
         fetchData();
