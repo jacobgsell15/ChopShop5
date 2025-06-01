@@ -4,11 +4,22 @@ import axios from 'axios'
 
 function EditOrderRow(props){
 const [inputs,setInputs] = useState({});
+const [addItem,setAddItem] = useState(props.item);
 
 const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({...values,[name]:value}))
+    setAddItem(values => ({...values,[name]:value}))
+}
+
+const handleUpdate = (event) => {
+    if (item.id) {
+      axios
+        .put(`/api/additems/${props.item.id}/`, item)
+        .then((res) => this.refreshList());
+      return;
+    }
 }
     
 const EditOrderRowDiv = {        
@@ -131,7 +142,7 @@ console.log(props.product);
             </label>
         </div>
         <div style={EditOrderRowRDiv}>
-            <button style={SubmitButton}>Update</button>
+            <button style={SubmitButton} onClick={(event) => handleUpdate(addItem)}>Update</button>
         <br />
             <button style={DeleteButton}>Delete</button>
         </div>
@@ -170,7 +181,7 @@ function EditOrder(props){
                 .catch ((error) => {
                     console.error("Error fetching data:", error)
                 })
-                
+
             axios
                 .get("/api/additems/") // Replace with your API URL
                 .then((response) => {setAllAdd(response.data)})
