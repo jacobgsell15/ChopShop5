@@ -190,15 +190,14 @@ function EditOrder(props){
     }, []);
 
 
-    const handleLIUpdate = (item, uitem) => {
+    const handleLIUpdate = async (item, uitem) => {
     if (uitem.id === item.id) {
-      axios
-        .put(`/api/additems/${item.id}/`, uitem)
-        .catch ((error) => {
-            console.error("Error fetching data:", error)
-        })
-        //.then((res) => this.refreshList());
-      return;
+        try {
+            const response = await axios.put(`/api/additems/${item.id}`, uitem);
+                console.log('Data posted successfully:', response.data);
+            } catch (error) {
+                console.error('Error posting data:', error);
+            }
     }
 }
     console.log(props.workorder)
