@@ -197,6 +197,7 @@ function EditOrder(props){
             const response = await axios.put(`/api/additems/${item.id}/`, uitem);
                 console.log('Data posted successfully:', response.data);
             } catch (error) {
+                console.log(error);
                 console.error('Error posting data:', error);
             }
     }
