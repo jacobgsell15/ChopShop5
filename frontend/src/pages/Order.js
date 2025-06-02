@@ -167,7 +167,7 @@ function EditOrder(props){
 
     const handleSubmit = (event) => {
         //event.preventDefaults();
-        alert(inputs + selectedValue);
+        alert(event);
     }
 
         useEffect(() => {
