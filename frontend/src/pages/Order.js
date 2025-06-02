@@ -192,6 +192,8 @@ function EditOrder(props){
 
     const handleLIUpdate = async (item, uitem) => {
     if (uitem.id === item.id) {
+        console.log(item)
+        console.log(uitem)
         try {
             const response = await axios.put(`/api/additems/${item.id}`, uitem);
                 console.log('Data posted successfully:', response.data);
