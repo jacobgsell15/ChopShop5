@@ -9,7 +9,7 @@ console.log(props.item);
 
 const handleChange = (event) => {
     const name = event.target.name;
-    const value = event.target.value;
+    const value = parseInt(event.target.value,10);
     setInputs(values => ({...values,[name]:value}))
     setAddItem(values => ({...values,[name]:value}))
     console.log(addItem);
