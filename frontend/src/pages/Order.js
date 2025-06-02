@@ -130,7 +130,7 @@ console.log(props.product);
         <br />
             <label style={EditOrderRowH}>Qty:
             <input
-                type="text"
+                type="number"
                 name="qty"
                 value={inputs.qty || addItem.qty || ""}
                 style={EditOrderRowInput2}
