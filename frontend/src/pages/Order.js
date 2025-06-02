@@ -14,18 +14,6 @@ const handleChange = (event) => {
     setAddItem(values => ({...values,[name]:value}))
     console.log(addItem);
 }
-
-const handleUpdate = (event) => {
-    if (addItem.id === props.item.id) {
-      axios
-        .put(`/api/additems/${addItem.id}/`, addItem)
-        .catch ((error) => {
-            console.error("Error fetching data:", error)
-        })
-        //.then((res) => this.refreshList());
-      return;
-    }
-}
     
 const EditOrderRowDiv = {        
     borderBottom:"1px solid #C5C5C5",
@@ -147,7 +135,7 @@ console.log(props.product);
             </label>
         </div>
         <div style={EditOrderRowRDiv}>
-            <button style={SubmitButton} onClick={(event) => handleUpdate(addItem)}>Update</button>
+            <button style={SubmitButton} onClick={props.onClick(props.item,addItem)}>Update</button>
         <br />
             <button style={DeleteButton}>Delete</button>
         </div>
@@ -197,6 +185,18 @@ function EditOrder(props){
         fetchData();
     }, []);
 
+
+    const handleLIUpdate = (item, uitem) => {
+    if (uitem.id === item.id) {
+      axios
+        .put(`/api/additems/${item.id}/`, uitem)
+        .catch ((error) => {
+            console.error("Error fetching data:", error)
+        })
+        //.then((res) => this.refreshList());
+      return;
+    }
+}
     console.log(props.workorder)
     const EditOrderDiv = {
     border:"1px solid #C5C5C5",
@@ -283,7 +283,7 @@ const EditOrderBottomRowDiv = {
                 </div>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]}/> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={(event) => handleLIUpdate(event,,)}/> }
                     </>
                 ))}
                 <div style={EditOrderBottomRowDiv}>
