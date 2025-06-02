@@ -5,14 +5,13 @@ import axios from 'axios'
 function EditOrderRow(props){
 const [inputs,setInputs] = useState({});
 const [addItem,setAddItem] = useState(props.item);
-console.log(props.item);
 
 const handleChange = (event) => {
     const name = event.target.name;
     const value = parseInt(event.target.value,10);
     setInputs(values => ({...values,[name]:value}))
     setAddItem(values => ({...values,[name]:value}))
-    console.log(addItem);
+    console.log("Row: ai"+addItem);
 }
 
 const updater = (event) => {
@@ -100,7 +99,7 @@ const DeleteButton = {
     padding:"0px",
     fontSize:"12px"
 }
-console.log(props.product);
+console.log("Row initial: "+props.product);
     return (
     <>        
         <div style={EditOrderRowDiv}>
@@ -198,7 +197,7 @@ function EditOrder(props){
             const response = await axios.put(`/api/additems/${item.id}/`, uitem);
                 console.log('Data posted successfully:', response.data);
             } catch (error) {
-                console.log('Error posting data:', error);
+                console.error('Error posting data:', error);
             }
     }
 }
