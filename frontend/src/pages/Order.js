@@ -14,6 +14,10 @@ const handleChange = (event) => {
     setAddItem(values => ({...values,[name]:value}))
     console.log(addItem);
 }
+
+const updater = (event) => {
+    props.onClick(props.item,addItem);
+}
     
 const EditOrderRowDiv = {        
     borderBottom:"1px solid #C5C5C5",
@@ -135,7 +139,7 @@ console.log(props.product);
             </label>
         </div>
         <div style={EditOrderRowRDiv}>
-            <button style={SubmitButton} onClick={props.onClick(props.item,addItem)}>Update</button>
+            <button style={SubmitButton} onClick={(event) => updater(event)}>Update</button>
         <br />
             <button style={DeleteButton}>Delete</button>
         </div>
@@ -283,7 +287,7 @@ const EditOrderBottomRowDiv = {
                 </div>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={(event) => handleLIUpdate(event,,)}/> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate}/> }
                     </>
                 ))}
                 <div style={EditOrderBottomRowDiv}>
