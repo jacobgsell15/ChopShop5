@@ -36,7 +36,7 @@ class AddItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     qty = models.IntegerField()
     price = models.FloatField()
-    guest = models.IntegerField()
+    guest = models.IntegerField(default=1)
 
     def _str_(self):
         return self.order
