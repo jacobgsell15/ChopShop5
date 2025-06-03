@@ -193,15 +193,24 @@ function EditOrder(props){
     if (uitem.id === item.id) {
         console.log(item)
         console.log(uitem)
-        try {
+        axios
+            .put(`/api/additems/${item.id}/`, uitem)
+            .then((res) => this.refreshList());
+        return;
+        }
+        axios
+        .post("/api/additems/", item)
+        .then((res) => this.refreshList());
+        /*try {
             const response = await axios.post(`/api/additems/${item.id}/`, uitem);
+
                 console.log('Data posted successfully:', response.data);
             } catch (error) {
                 console.log(error);
                 alert(error);
             }
+        }*/
     }
-}
     console.log(props.workorder)
     const EditOrderDiv = {
     border:"1px solid #C5C5C5",
