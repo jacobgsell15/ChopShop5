@@ -160,7 +160,7 @@ function EditOrder(props){
 
     const handleSelect = (event,order) => {
         setSelectedValue(event.target.value);
-        const item = {"order":order.id,"item":event.target.value,"qty":1,"price":0.00,"guest":order.guests};
+        const item = {"order":order.id,"item":event.target.value,"qty":1,"price":1.00,"guest":order.guests};
         console.log(item);
         console.log(event);
         console.log(selectedValue);
