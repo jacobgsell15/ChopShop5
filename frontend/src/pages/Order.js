@@ -162,7 +162,7 @@ function EditOrder(props){
 
     const handleSelect = (event) => {
         setSelectedValue(event.target.value);
-        const item = ["order"=props.order.id,"item"=selectedValue,"qty"=1,"price"=0.00,"guest"=1];
+        const item = {"order":props.order.id,"item":selectedValue,"qty":1,"price":0.00,"guest":1};
         console.log(item);
         axios
         .post("/api/additems/", item)
