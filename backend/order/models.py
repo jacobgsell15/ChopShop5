@@ -39,4 +39,4 @@ class AddItem(models.Model):
     guest = models.IntegerField()
 
     def _str_(self):
-        return self.guest
+        return self.order
