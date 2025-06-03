@@ -25,7 +25,7 @@ class ItemView(viewsets.ModelViewSet):
     queryset = Item.objects.all()
 
 class AddItemView(viewsets.ModelViewSet):
-    # permission_classes = [AllowAny]
+    permission_classes = [AllowAny]
     serializer_class = AddItemSerializer
     queryset = AddItem.objects.all()
 
