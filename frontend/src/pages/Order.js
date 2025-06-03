@@ -162,7 +162,12 @@ function EditOrder(props){
 
     const handleSelect = (event) => {
         setSelectedValue(event.target.value);
-        };
+        const item = ["order"=props.order.id,"item"=selectedValue,"qty"=1,"price"=0.00,"guest"=1];
+        console.log(item);
+        axios
+        .post("/api/additems/", item)
+        .then((res) => this.refreshList());
+    };
 
     const handleSubmit = (event) => {
         //event.preventDefaults();
@@ -190,26 +195,14 @@ function EditOrder(props){
 
 
     const handleLIUpdate = async (item, uitem) => {
-    if (uitem.id === item.id) {
-        console.log(item)
-        console.log(uitem)
-        axios
-            .put(`/api/additems/${item.id}/`, uitem)
-            .then((res) => this.refreshList());
-        return;
+        if (uitem.id === item.id) {
+            console.log(item)
+            console.log(uitem)
+            axios
+                .put(`/api/additems/${item.id}/`, uitem)
+                .then((res) => this.refreshList());
+            return;
         }
-        axios
-        .post("/api/additems/", item)
-        .then((res) => this.refreshList());
-        /*try {
-            const response = await axios.post(`/api/additems/${item.id}/`, uitem);
-
-                console.log('Data posted successfully:', response.data);
-            } catch (error) {
-                console.log(error);
-                alert(error);
-            }
-        }*/
     }
     console.log(props.workorder)
     const EditOrderDiv = {
