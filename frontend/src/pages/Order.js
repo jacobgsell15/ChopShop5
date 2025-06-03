@@ -299,7 +299,7 @@ const EditOrderBottomRowDiv = {
                     <select value={selectedValue} onChange={(event) => handleSelect(event, props.workorder)}>
                         <option value="">Select a Menu Item</option>
                         {items.map((product) => (
-                        <option key={product.id} value={product.description}>{product.description}</option>
+                        <option key={product.id} value={product.id}>{product.description}</option>
                         ))}
                     </select>
                 </label>
