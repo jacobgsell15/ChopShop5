@@ -194,7 +194,7 @@ function EditOrder(props){
         console.log(item)
         console.log(uitem)
         try {
-            const response = await axios.post(`/api/additems/${item.id}/change/`, uitem);
+            const response = await axios.post(`/api/additems/${item.id}/`, uitem);
                 console.log('Data posted successfully:', response.data);
             } catch (error) {
                 console.log(error);
