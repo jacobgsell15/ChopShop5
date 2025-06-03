@@ -194,7 +194,7 @@ function EditOrder(props){
         console.log(item)
         console.log(uitem)
         axios
-            .put(`/api/additems/${item.id}/`, uitem)
+            .patch(`/api/additems/${item.id}/`, uitem)
             .then((res) => this.refreshList());
         return;
         }
