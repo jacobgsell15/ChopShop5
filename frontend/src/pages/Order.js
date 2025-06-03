@@ -160,9 +160,9 @@ function EditOrder(props){
         setInputs(values => ({...values,[name]:value}))
     }
 
-    const handleSelect = (event) => {
+    const handleSelect = (event,order) => {
         setSelectedValue(event.target.value);
-        const item = {"order":props.order.id,"item":selectedValue,"qty":1,"price":0.00,"guest":1};
+        const item = {"order":order.id,"item":selectedValue,"qty":1,"price":0.00,"guest":1};
         console.log(item);
         axios
         .post("/api/additems/", item)
@@ -296,7 +296,7 @@ const EditOrderBottomRowDiv = {
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
-                    <select value={selectedValue} onChange={handleSelect}>
+                    <select value={selectedValue} onChange={handleSelect(props.workorder)}>
                         <option value="">Select a Menu Item</option>
                         {items.map((product) => (
                         <option key={product.id} value={product.description}>{product.description}</option>
