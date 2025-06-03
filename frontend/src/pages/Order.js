@@ -11,7 +11,6 @@ const handleChange = (event) => {
     const value = parseInt(event.target.value,10);
     setInputs(values => ({...values,[name]:value}))
     setAddItem(values => ({...values,[name]:value}))
-    console.log("Row: ai"+addItem);
 }
 
 const updater = (event) => {
@@ -99,7 +98,6 @@ const DeleteButton = {
     padding:"0px",
     fontSize:"12px"
 }
-console.log("Row initial: "+props.product);
     return (
     <>        
         <div style={EditOrderRowDiv}>
@@ -162,8 +160,10 @@ function EditOrder(props){
 
     const handleSelect = (event,order) => {
         setSelectedValue(event.target.value);
-        const item = {"order":order.id,"item":selectedValue,"qty":1,"price":0.00,"guest":1};
+        const item = {"order":order.id,"item":event.target.value,"qty":1,"price":0.00,"guest":1};
         console.log(item);
+        console.log(event);
+        console.log(selectedValue);
         axios
         .post("/api/additems/", item)
         .then((res) => this.refreshList());
@@ -196,15 +196,12 @@ function EditOrder(props){
 
     const handleLIUpdate = async (item, uitem) => {
         if (uitem.id === item.id) {
-            console.log(item)
-            console.log(uitem)
             axios
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => this.refreshList());
             return;
         }
     }
-    console.log(props.workorder)
     const EditOrderDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
@@ -260,8 +257,6 @@ const EditOrderBottomRowDiv = {
     height:"50px", 
     padding:"5px 0px 0px 5%"  
 }
-
-    console.log(allAdd);
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
@@ -465,14 +460,12 @@ function Order(){
     }, []);
 
     const handleToggle = (event, order) => {
-        console.log(toggleComp);
         if(toggleComp){
              setToggleComp(false);
              setCurrOrd([]);
         }
         else{
             setToggleComp(true)};
-            console.log(order)
             if(order === "blank") setCurrOrd([]);
             else setCurrOrd(order);
     }
