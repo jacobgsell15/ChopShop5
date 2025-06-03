@@ -296,7 +296,7 @@ const EditOrderBottomRowDiv = {
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
-                    <select value={selectedValue} onChange={handleSelect(props.workorder)}>
+                    <select value={selectedValue} onChange={(event) => handleSelect(event, props.workorder)}>
                         <option value="">Select a Menu Item</option>
                         {items.map((product) => (
                         <option key={product.id} value={product.description}>{product.description}</option>
