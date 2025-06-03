@@ -167,6 +167,8 @@ function EditOrder(props){
         axios
         .post("/api/additems/", item)
         .then((res) => this.refreshList());
+        
+        return;
     };
 
     const handleSubmit = (event) => {
