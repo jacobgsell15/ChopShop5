@@ -190,7 +190,7 @@ function EditOrder(props){
 
     const handleSubmit = (event) => {
         //event.preventDefaults();
-        alert(event);
+        alert('event');
     }
 
         useEffect(() => {
@@ -214,17 +214,17 @@ function EditOrder(props){
     }, [reload]);
 
 
-    const handleLIUpdate = async (item, uitem) => {
+    const handleLIUpdate = (item, uitem) => {
         if (uitem.id === item.id) {
-            await axios
+            axios
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => setReload(true));
             return;
         }
     }
 
-    const handleLIDelete = async (item) => {
-        await axios
+    const handleLIDelete = (item) => {
+        axios
             .delete(`/api/additems/${item.id}/`)
             .then((res) => setReload(true));
         return;
