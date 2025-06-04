@@ -5,6 +5,8 @@ import axios from 'axios'
 function EditOrderRow(props){
 const [inputs,setInputs] = useState({});
 const [addItem,setAddItem] = useState(props.item);
+const [updateHover,setUpdateHover] = useState(false);
+const [deleteHover,setDeleteHover] = useState(false);
 
 const handleChange = (event) => {
     const name = event.target.name;
@@ -15,6 +17,10 @@ const handleChange = (event) => {
 
 const updater = (event) => {
     props.onClick(props.item,addItem);
+}
+
+const deleter = (event) => {
+    props.onClick2(props.item);
 }
     
 const EditOrderRowDiv = {        
@@ -82,7 +88,10 @@ const EditOrderRowInput2 = {
 const SubmitButton = {
     width:"45px",
     height:"20px",
-    backgroundColor:"rgba(255,165,0,1)",
+
+        backgroundColor: isHovering ? 'rgba(0,0,0,.05)' : 'rgba(0,0,0,0)',
+
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
     boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -95,7 +104,7 @@ const SubmitButton = {
 const DeleteButton = {
     width:"45px",
     height:"20px",
-    backgroundColor:"#FF1A00",
+    backgroundColor: deleteHover ? "rgba(255,26,0,1)" : "rgba(255,26,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
     boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -146,9 +155,9 @@ const DeleteButton = {
            <b style={EditOrderRowH}>{addItem.price}</b>
         </div>
         <div style={EditOrderRowRDiv}>
-            <button style={SubmitButton} onClick={(event) => updater(event)}>Update</button>
+            <button style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} onClick={(event) => updater(event)}>Update</button>
         <br />
-            <button style={DeleteButton}>Delete</button>
+            <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)} onClick={(event) => deleter(event)}>Delete</button>
         </div>
     </div>
     </>
@@ -215,12 +224,19 @@ function EditOrder(props){
             return;
         }
     }
+
+    const handleLIDelete = async (item) => {
+        axios
+            .delete(`/api/additems/${item.id}/`)
+            .then((res) => this.refreshList());
+        return;
+    }
 const EditOrderDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
     borderRadius: '8px',        
     boxShadow: '0px 2px  rgba(0,0,0,.25)',
-    width:"450px",
+    width:"400px",
     height:"450px",
     margin:"20px",
     textAlign:"center",
@@ -305,7 +321,7 @@ const EditOrderRowHouseDiv = {
                 <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate}/> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate} onClick2={handleLIDelete}/> }
                     </>
                 ))}
                 </div>
@@ -525,7 +541,7 @@ function Order(){
     const OrdersDiv = {
         border:"1px solid #C5C5C5",
         backgroundColor: '#FFFFFF',
-        width:"150px",
+        width:"200px",
         height:"450px",
         borderRadius:"8px",
         margin:"20px",
