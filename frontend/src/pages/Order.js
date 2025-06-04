@@ -164,6 +164,7 @@ const DeleteButton = {
 
 function EditOrder(props){
     const [inputs,setInputs] = useState({});
+    const [updatedOrder,setUpdatedOrder] = useState(props.workorder);
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
     const [items, setItems] = useState([]);
@@ -173,6 +174,7 @@ function EditOrder(props){
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({...values,[name]:value}))
+        setUpdatedOrder(values => ({...values,[name]:value}))
     }
 
     const handleSelect = (event,order) => {
@@ -310,7 +312,7 @@ const EditOrderRowHouseDiv = {
             <div style={EditOrderHeadingDiv}>
                 <div style={EditOrderHeadingH}><b>{props.location.name}</b></div>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleUpdate(props.workorder,updatedOrder)}>
                 <div style={EditOrderSubHeadingDiv}>
                     <label style={EditOrderSubHeadingH}>Table:
                     <input 
