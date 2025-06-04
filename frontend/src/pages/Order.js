@@ -222,8 +222,9 @@ function EditOrder(props){
                 .then((res) => setReload(true))
         }
         else{
+            const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
             axios
-                .post('/api/orders/',updatedOrder)
+                .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
         }
     }
