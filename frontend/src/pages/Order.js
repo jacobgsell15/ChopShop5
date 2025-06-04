@@ -208,7 +208,8 @@ function EditOrder(props){
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
                 })
-        };        
+        };  
+        setReload(false);      
         fetchData();
     }, [reload]);
 
@@ -217,16 +218,16 @@ function EditOrder(props){
         if (uitem.id === item.id) {
             axios
                 .put(`/api/additems/${item.id}/`, uitem)
-                .then((res) => this.refreshList());
-            setReload(true)
+                .then((res) => setReload(true));
+            return;
         }
     }
 
     const handleLIDelete = async (item) => {
         axios
             .delete(`/api/additems/${item.id}/`)
-            .then((res) => this.refreshList());
-        setReload(true)
+            .then((res) => setReload(true));
+        return;
     }
 const EditOrderDiv = {
     border:"1px solid #C5C5C5",
