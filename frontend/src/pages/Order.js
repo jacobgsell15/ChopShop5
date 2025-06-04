@@ -213,6 +213,21 @@ function EditOrder(props){
         fetchData();
     }, [reload]);
 
+    const handleUpdate = (order, uorder) => {
+        if (uorder.id === order.id){
+            axios
+                .put(`/api/orders/${order.id}`, uorder)
+                .then((res) => setReload(true))
+        }
+    }
+
+    const handleDelete = (order) => {
+        if (uorder.id === order.id){
+            axios
+                .put(`/api/orders/${order.id}`)
+                .then((res) => setReload(true))
+        }
+    }
 
     const handleLIUpdate = (item, uitem) => {
         if (uitem.id === item.id) {
