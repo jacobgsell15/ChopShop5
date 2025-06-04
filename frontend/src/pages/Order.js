@@ -216,7 +216,7 @@ function EditOrder(props){
     }, [reload]);
 
     const handleUpdate = (event, order) => {
-        if (updatedOrder.id === order.id){
+        if (updatedOrder.id === order.id && updatedOrder.id != ""){
             axios
                 .put(`/api/orders/${order.id}/`, updatedOrder)
                 .then((res) => setReload(true))
