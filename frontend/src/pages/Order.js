@@ -190,7 +190,7 @@ function EditOrder(props){
 
     const handleSubmit = (event) => {
         //event.preventDefaults();
-        alert('event');
+        console.log('event');
     }
 
         useEffect(() => {
