@@ -349,7 +349,7 @@ const EditOrderRowHouseDiv = {
                     </select>
                 </label>
                 </div>
-                <input type="submit" />
+                <input type="submit" /><button onClick={(event) => handleDelete(event,props.workorder)}>Delete</button>
             </form>
         </div>
     )
