@@ -479,7 +479,7 @@ function Order(){
             setToggleComp(true)};
             if(order === "blank"){
                 setCurrOrd([]);
-                setCurrOrd((values) => [...values,["location"]=id])
+                setCurrOrd((values) => ({...values,["location"]:id})
             }
             else setCurrOrd(order);
     }
