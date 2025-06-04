@@ -263,7 +263,7 @@ const EditOrderBottomRowDiv = {
 
 const EditOrderRowHouseDiv = {
     overflowY:"scroll",
-    height:"200px"
+    height:"180px"
 }
 
     return(
