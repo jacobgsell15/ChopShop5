@@ -205,7 +205,7 @@ function EditOrder(props){
             return;
         }
     }
-    const EditOrderDiv = {
+const EditOrderDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
     borderRadius: '8px',        
@@ -260,6 +260,11 @@ const EditOrderBottomRowDiv = {
     height:"50px", 
     padding:"5px 0px 0px 5%"  
 }
+
+const EditOrderRowHouseDiv = {
+    overflowY:"scroll",
+}
+
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
@@ -286,11 +291,13 @@ const EditOrderBottomRowDiv = {
                     />
                     </label>
                 </div>
+                <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
                     <>
                     {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate}/> }
                     </>
                 ))}
+                </div>
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
