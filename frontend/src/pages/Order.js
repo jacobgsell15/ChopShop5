@@ -219,7 +219,6 @@ function EditOrder(props){
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => this.refreshList());
             setReload(true)
-            return;
         }
     }
 
@@ -228,7 +227,6 @@ function EditOrder(props){
             .delete(`/api/additems/${item.id}/`)
             .then((res) => this.refreshList());
         setReload(true)
-        return;
     }
 const EditOrderDiv = {
     border:"1px solid #C5C5C5",
