@@ -138,7 +138,6 @@ const DeleteButton = {
         <div style={EditOrderRowMDiv}>
            <div style={EditOrderRowH}><b>{addItem.price}</b></div>
         </div>
-        </div>
         <div style={EditOrderRowRDiv}>
             <button style={SubmitButton} onClick={(event) => updater(event)}>Update</button>
         <br />
