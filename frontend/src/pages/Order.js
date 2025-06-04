@@ -218,14 +218,14 @@ function EditOrder(props){
     const handleUpdate = (event, order) => {
         if (updatedOrder.id === order.id){
             axios
-                .put(`/api/orders/${order.id}`, updatedOrder)
+                .put(`/api/orders/${order.id}/`, updatedOrder)
                 .then((res) => setReload(true))
         }
     }
 
     const handleDelete = (event, order) => {
         axios
-            .delete(`/api/orders/${order.id}`)
+            .delete(`/api/orders/${order.id}/`)
             .then((res) => setReload(true))
     }
 
