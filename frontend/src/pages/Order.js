@@ -258,12 +258,12 @@ const EditOrderBottomRowDiv = {
     textAlign:"left",
     width:"95%",
     height:"50px", 
-    padding:"5px 0px 0px 5%"  
+    padding:"5px 0px 0px 5px"  
 }
 
 const EditOrderRowHouseDiv = {
     overflowY:"scroll",
-    height:"250px"
+    height:"240px"
 }
 
     return(
