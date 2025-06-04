@@ -216,7 +216,7 @@ function EditOrder(props){
 
     const handleLIUpdate = async (item, uitem) => {
         if (uitem.id === item.id) {
-            axios
+            await axios
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => setReload(true));
             return;
@@ -224,7 +224,7 @@ function EditOrder(props){
     }
 
     const handleLIDelete = async (item) => {
-        axios
+        await axios
             .delete(`/api/additems/${item.id}/`)
             .then((res) => setReload(true));
         return;
