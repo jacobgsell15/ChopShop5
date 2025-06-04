@@ -340,6 +340,7 @@ const EditOrderRowHouseDiv = {
 }
 
 function OrderLocationElement(props){
+    const [locationHover,setLocationHover] = useState(false);
     const LocationDiv= {
         border:"1px solid #C5C5C5",
         backgroundColor: '#FFFFFF',
@@ -369,7 +370,7 @@ function OrderLocationElement(props){
     const SubmitButton = {
         width:"75px",
         height:"25px",
-        backgroundColor:"rgba(255,165,0,1)",
+        backgroundColor: locationHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
         borderRadius:"4px",
         border:"1px solid #C5C5C5",
         boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -396,7 +397,7 @@ function OrderLocationElement(props){
         <div style={LocationDiv}>
             <div style={LocationHeadingDiv}>
                 <div style={LocationHeadingH}><b>{props.location.name}</b></div>
-                <button style={SubmitButton} onClick={props.onClick}>New Order</button>            
+                <button style={SubmitButton} onMouseEnter={() => setLocationHover(true)} onMouseLeave={() => setLocationHover(false)} onClick={props.onClick}>New Order</button>            
             </div>
             <div style={LocationInfoDiv}>
                 <div style={LocationInfoCol}>
