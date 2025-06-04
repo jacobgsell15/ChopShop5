@@ -166,7 +166,7 @@ function EditOrder(props){
         console.log(selectedValue);
         axios
         .post("/api/additems/", item)
-        .then((res) => this.refreshList());
+        .then((res) => fetchData());
         
         return;
     };
