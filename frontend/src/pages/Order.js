@@ -168,7 +168,7 @@ function EditOrder(props){
         axios
         .post("/api/additems/", item)
         .then((res) => setReload(true));
-        
+        setSelectedValue('')
         return;
     };
 
@@ -269,7 +269,7 @@ const EditOrderRowHouseDiv = {
     return(
         <div style={EditOrderDiv}>
             <div style={EditOrderHeadingDiv}>
-                <div style={EditOrderHeadingH}><b>New Order</b></div>
+                <div style={EditOrderHeadingH}><b>{props.location.name}</b></div>
             </div>
             <form onSubmit={handleSubmit}>
                 <div style={EditOrderSubHeadingDiv}>
@@ -298,6 +298,7 @@ const EditOrderRowHouseDiv = {
                     {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate}/> }
                     </>
                 ))}
+                </div>
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
@@ -308,7 +309,6 @@ const EditOrderRowHouseDiv = {
                         ))}
                     </select>
                 </label>
-                </div>
                 </div>
                 <input type="submit" />
             </form>
@@ -477,7 +477,10 @@ function Order(){
         }
         else{
             setToggleComp(true)};
-            if(order === "blank") setCurrOrd([]);
+            if(order === "blank"){
+                setCurrOrd([]);
+                setCurrOrd((values) => [...values,["location"]=id])
+            }
             else setCurrOrd(order);
     }
     
@@ -563,13 +566,13 @@ function Order(){
             </div>
 
             <>
-            {toggleComp && <EditOrder curr={currOrder} workorder={currOrd} menu={menu} />}
+            {toggleComp && <EditOrder curr={currOrder} location={locs[currOrd.location - 1]} workorder={currOrd} menu={menu} />}
             </>
 
             <div style={LocationsHouseDiv}>
                 {locs.map((location) => (
                     <>
-                        <OrderLocationElement key={location.id} location={location} orders={openOrds} onClick={(event) => handleToggle(event,"blank")}/>
+                        <OrderLocationElement key={location.id} location={location} orders={openOrds} onClick={(event) => handleToggle(event,"blank",location.id)}/>
                     </>
                 ))}
             </div>
