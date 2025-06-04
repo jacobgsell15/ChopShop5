@@ -179,14 +179,14 @@ function EditOrder(props){
 
         useEffect(() => {
         const fetchData = async () => {
-            axios
+            await axios
                 .get("api/items/")
                 .then((response) => {setItems(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error)
                 })
 
-            axios
+            await axios
                 .get("/api/additems/") // Replace with your API URL
                 .then((response) => {setAllAdd(response.data)})
                 .catch ((error) => {
@@ -438,21 +438,21 @@ function Order(){
 
     useEffect(() => {
         const fetchData = async () => {            
-            axios
+            await axios
                 .get("/api/locations/")
                 .then((response) => {setLocs(response.data)})
                 .catch ((eror) => {
                     console.error("Error fetching data:", eror)
                 })
 
-            axios
+            await axios
                 .get("/api/orders/") // Replace with your API URL
                 .then((response) => {setOpenOrds(response.data)})
                 .catch ((error) => {
                     console.error("Error fetching data:", error);
                 })
 
-            axios
+            await axios
                 .get("/api/items/")
                 .then((response) => {setItems(response.data)})
                 .catch ((eror) => {
