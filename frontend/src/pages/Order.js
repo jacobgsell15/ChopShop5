@@ -215,7 +215,7 @@ function EditOrder(props){
         fetchData();
     }, [reload]);
 
-    const handleUpdate = (order) => {
+    const handleUpdate = (event, order) => {
         if (updatedOrder.id === order.id){
             axios
                 .put(`/api/orders/${order.id}`, updatedOrder)
@@ -223,7 +223,7 @@ function EditOrder(props){
         }
     }
 
-    const handleDelete = (order) => {
+    const handleDelete = (event, order) => {
         axios
             .delete(`/api/orders/${order.id}`)
             .then((res) => setReload(true))
@@ -310,7 +310,7 @@ const EditOrderRowHouseDiv = {
             <div style={EditOrderHeadingDiv}>
                 <div style={EditOrderHeadingH}><b>{props.location.name}</b></div>
             </div>
-            <form onSubmit={handleUpdate(props.workorder)}>
+            <form onSubmit={(event) => handleUpdate(event,props.workorder)}>
                 <div style={EditOrderSubHeadingDiv}>
                     <label style={EditOrderSubHeadingH}>Table:
                     <input 
