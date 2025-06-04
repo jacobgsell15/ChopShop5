@@ -149,7 +149,7 @@ const DeleteButton = {
             </label>
         </div>
         <div style={EditOrderRowM2Div}>
-           <b style={EditOrderRowH}>{addItem.price}</b>
+           <b style={EditOrderRowH}>${addItem.price}</b>
         </div>
         <div style={EditOrderRowRDiv}>
             <button style={SubmitButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} onClick={(event) => updater(event)}>Update</button>
