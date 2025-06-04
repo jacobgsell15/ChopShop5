@@ -218,6 +218,7 @@ function EditOrder(props){
             axios
                 .put(`/api/additems/${item.id}/`, uitem)
                 .then((res) => this.refreshList());
+            setReload(true)
             return;
         }
     }
@@ -226,6 +227,7 @@ function EditOrder(props){
         axios
             .delete(`/api/additems/${item.id}/`)
             .then((res) => this.refreshList());
+        setReload(true)
         return;
     }
 const EditOrderDiv = {
