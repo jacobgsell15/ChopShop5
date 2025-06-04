@@ -38,6 +38,13 @@ const EditOrderRowMDiv = {
     textAlign:"right",
     padding:"0px 0px 0px 0px"
 } 
+const EditOrderRowM2Div = {
+    width:"45px",
+    height:"90%",
+    float:"left",
+    textAlign:"right",
+    padding:"0px 0px 0px 0px"
+} 
 const EditOrderRowRDiv = {
     textAlign:"right",
     width:"55px",
@@ -135,7 +142,7 @@ const DeleteButton = {
             />
             </label>
         </div>
-        <div style={EditOrderRowMDiv}>
+        <div style={EditOrderRowM2Div}>
            <b style={EditOrderRowH}>{addItem.price}</b>
         </div>
         <div style={EditOrderRowRDiv}>
@@ -518,7 +525,7 @@ function Order(){
     const OrdersDiv = {
         border:"1px solid #C5C5C5",
         backgroundColor: '#FFFFFF',
-        width:"200px",
+        width:"150px",
         height:"450px",
         borderRadius:"8px",
         margin:"20px",
