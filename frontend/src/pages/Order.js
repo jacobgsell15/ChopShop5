@@ -136,7 +136,7 @@ const DeleteButton = {
             </label>
         </div>
         <div style={EditOrderRowMDiv}>
-           <div style={EditOrderRowH}><b>{addItem.price}</b></div>
+           <b style={EditOrderRowH}>{addItem.price}</b>
         </div>
         <div style={EditOrderRowRDiv}>
             <button style={SubmitButton} onClick={(event) => updater(event)}>Update</button>
