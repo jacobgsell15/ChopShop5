@@ -470,7 +470,7 @@ function Order(){
         fetchData();
     }, []);
 
-    const handleToggle = (event, order) => {
+    const handleToggle = (event, order, id) => {
         if(toggleComp){
              setToggleComp(false);
              setCurrOrd([]);
