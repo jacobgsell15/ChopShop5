@@ -135,6 +135,10 @@ const DeleteButton = {
             />
             </label>
         </div>
+        <div style={EditOrderRowMDiv}>
+           <div style={EditOrderRowH}><b>{addItem.price}</b></div>
+        </div>
+        </div>
         <div style={EditOrderRowRDiv}>
             <button style={SubmitButton} onClick={(event) => updater(event)}>Update</button>
         <br />
@@ -210,7 +214,7 @@ const EditOrderDiv = {
     backgroundColor: '#FFFFFF',
     borderRadius: '8px',        
     boxShadow: '0px 2px  rgba(0,0,0,.25)',
-    width:"350px",
+    width:"450px",
     height:"450px",
     margin:"20px",
     textAlign:"center",
@@ -258,7 +262,7 @@ const EditOrderBottomRowDiv = {
     textAlign:"left",
     width:"95%",
     height:"50px", 
-    padding:"5px 0px 0px 5px"  
+    padding:"5px 0px 0px 5%"  
 }
 
 const EditOrderRowHouseDiv = {
