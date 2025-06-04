@@ -298,7 +298,6 @@ const EditOrderRowHouseDiv = {
                     {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate}/> }
                     </>
                 ))}
-                </div>
                 <div style={EditOrderBottomRowDiv}>
                 <label>
                     Choose an Item:
@@ -309,6 +308,7 @@ const EditOrderRowHouseDiv = {
                         ))}
                     </select>
                 </label>
+                </div>
                 </div>
                 <input type="submit" />
             </form>
