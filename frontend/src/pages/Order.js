@@ -151,6 +151,7 @@ function EditOrder(props){
     const [selectedValue, setSelectedValue] = useState('');
     const [allAdd, setAllAdd] = useState([]);
     const [items, setItems] = useState([]);
+    const [reload, setReload] = useState(false)
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -166,7 +167,7 @@ function EditOrder(props){
         console.log(selectedValue);
         axios
         .post("/api/additems/", item)
-        .then((res) => fetchData());
+        .then((res) => setReload(true));
         
         return;
     };
@@ -193,7 +194,7 @@ function EditOrder(props){
                 })
         };        
         fetchData();
-    }, []);
+    }, [reload]);
 
 
     const handleLIUpdate = async (item, uitem) => {
