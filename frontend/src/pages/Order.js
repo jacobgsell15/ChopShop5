@@ -221,6 +221,11 @@ function EditOrder(props){
                 .put(`/api/orders/${order.id}/`, updatedOrder)
                 .then((res) => setReload(true))
         }
+        else{
+            axios
+                .post('/api/orders/',updatedOrder)
+                .then((res) => setReload(true))
+        }
     }
 
     const handleDelete = (event, order) => {
@@ -519,7 +524,7 @@ function Order(){
             setToggleComp(true)};
             if(order === "blank"){
                 setCurrOrd([]);
-                setCurrOrd(values => ({...values,["location"]:id}))
+                setCurrOrd(values => ({...values,["location"]:id}));        
             }
             else setCurrOrd(order);
     }
