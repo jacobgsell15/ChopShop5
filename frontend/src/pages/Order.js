@@ -88,9 +88,6 @@ const EditOrderRowInput2 = {
 const SubmitButton = {
     width:"45px",
     height:"20px",
-
-        backgroundColor: isHovering ? 'rgba(0,0,0,.05)' : 'rgba(0,0,0,0)',
-
     backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
