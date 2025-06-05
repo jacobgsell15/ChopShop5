@@ -239,8 +239,9 @@ const MenuListDiv = {
                 <table>
                 <th style={MenuListHeader} width="5%">Selected</th><th style={MenuListHeader} width="30%">Item</th><th style={MenuListHeader} width="50%">Recipe</th><th style={MenuListHeader} width="5%">Available</th><th style={MenuListHeader} width="5%">Cost</th><th style={MenuListHeader} width="5%">Price</th>
                 {items.map((item) => (
-                    <MenuListRow key={item.id} item={item} />
+                    <MenuListRow key={item.id} item={item} last={false}/>
                 ))}
+                <MenuListRow item={[]} last={true}/>
                 </table>
             </div>
             </div>
