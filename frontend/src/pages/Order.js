@@ -214,7 +214,7 @@ function EditOrder(props){
         setReload(false);      
         fetchData();
     }, [reload]);
-
+    console.log(props.workorder);
     const handleUpdate = (event, order) => {
         if (updatedOrder.id === order.id && updatedOrder.id != null){
             axios
@@ -223,6 +223,7 @@ function EditOrder(props){
         }
         else{
             const uorder = {"id":"","location":props.location.id,"table":updatedOrder.table,"guests":updatedOrder.guests,"total":0.00,"finalized_list":{"default":true},"completed":false}
+            console.log(uorder)
             axios
                 .post('/api/orders/',uorder)
                 .then((res) => setReload(true))
