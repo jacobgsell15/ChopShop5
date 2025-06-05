@@ -105,7 +105,18 @@ const AddButton = {
                     onChange={handleSelectedChange}
                 />
             </td>
-            <td style={MenuListRowH}>{props.item.description}</td>
+            {!(props.last) && <td style={MenuListRowH}>{props.item.description}</td>}
+            {(props.last) && (
+                <td><input
+                    type="text"
+                    name="description"
+                    style={MenuListRowInput1}
+                    value={inputs.description || props.item.description || ""}
+                    onChange={handleChange}
+                />                    
+                </td>
+            )
+            }
             <td><input
                     type="text"
                     name="recipe"
