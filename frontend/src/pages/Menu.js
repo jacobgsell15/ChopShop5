@@ -60,7 +60,7 @@ function MenuListRow(props){
                     onChange={handleSelectedChange}
                 />
             </td>
-            <td style={MenuListRowH}>{props.item.title}</td>
+            <td style={MenuListRowH}>{props.item.description}</td>
             <td><input
                     type="text"
                     name="recipe"
@@ -79,7 +79,7 @@ function MenuListRow(props){
                     type="text"
                     name="cost"
                     style={MenuListRowInput2}
-                    value={inputs.cost || props.item.cost || ""}
+                    value={inputs.cost || ""}
                     onChange={handleChange}
                 />
             </td>
@@ -96,6 +96,22 @@ function MenuListRow(props){
 }
 
 function Menu(){
+
+    const [items,setItems] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {      
+            await axios
+                .get("/api/items/")
+                .then((response) => {setItems(response.data)})
+                .catch ((eror) => {
+                    console.error("Error fetching data:", eror)
+                })
+        };        
+        fetchData();
+    }, []);
+
+
 const menu = [
     {id:"0",title:"Classic Burger",recipe:"",available:false,cost:8.19,price:12.99},
     {id:"1",title:"American Burger"},
@@ -216,7 +232,7 @@ const DeleteButton = {
             <div style={MenuListDiv}>
                 <table>
                 <th style={MenuListHeader} width="5%">Selected</th><th style={MenuListHeader} width="30%">Item</th><th style={MenuListHeader} width="50%">Recipe</th><th style={MenuListHeader} width="5%">Available</th><th style={MenuListHeader} width="5%">Cost</th><th style={MenuListHeader} width="5%">Price</th>
-                {menu.map((item) => (
+                {items.map((item) => (
                     <MenuListRow key={item.id} item={item} />
                 ))}
                 </table>

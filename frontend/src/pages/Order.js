@@ -530,28 +530,7 @@ function Order(){
             }
             else setCurrOrd(order);
     }
-    
-    const currOrder = {id:"3",location:"Bar",table:"Bartop 1",guests:"2",alert:"",items:[
-        {id:"0", item: 'Cowboy Burger', modifications:'NO LETTUCE', guest:'2'},
-        {id:"1", item: 'Sprite', modifications:'',guest:'1'},
-        {id:"2", item: 'Chef Salad',modifications:'',guest:'2'}
-        ]
-    }
 
-    const menu = [
-        {id:"0",title:"Classic Burger"},
-        {id:"1",title:"American Burger"},
-        {id:"2",title:"Cowboy Burger"},
-        {id:"3",title:"Cheese Pizza"},
-        {id:"4",title:"Chef Salad"},
-        {id:"5",title:"Wedge Salad"},
-        {id:"6",title:"Cobb Salad"},
-        {id:"7",title:"Cheese Pizza"},
-        {id:"8",title:"Mea Lovers Pizza"},
-        {id:"9",title:"Soft Drink"},
-        {id:"10",title:"Water"},
-        {id:"11",title:"Standrd Renters Insurance"},
-    ]
     const HouseDiv = {
         backgroundImage:"linear-gradient( rgba(9,9,93,.7), rgba(9,9,93,.2), rgba(9,9,93,.7))",
         padding:"30px 5% 30px 5%",
