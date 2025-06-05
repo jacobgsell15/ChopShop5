@@ -9,7 +9,7 @@ function MenuListRow(props){
     const [deleteHover, setDeleteHover] = useState(false);
     const [currItem, setCurrItem] = useState(props.item);
 
-        const handleUpdate = (event, order) => {
+        const handleUpdate = (event, item) => {
             if (currItem.id === item.id && currItem.id != null){
                 axios
                     .put(`/api/items/${item.id}/`, currItem)
