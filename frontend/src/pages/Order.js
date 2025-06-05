@@ -592,7 +592,7 @@ function Order(){
             </div>
 
             <>
-            {toggleComp && <EditOrder curr={currOrder} location={locs[currOrd.location - 1]} workorder={currOrd} menu={menu} />}
+            {toggleComp && <EditOrder location={locs[currOrd.location - 1]} workorder={currOrd} />}
             </>
 
             <div style={LocationsHouseDiv}>
