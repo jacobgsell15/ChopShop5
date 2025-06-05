@@ -4,12 +4,10 @@ import axios from 'axios'
 
 function MenuListRow(props){    
     const [inputs,setInputs] = useState({});
-    const [isAvail, setIsAvail] = useState(true);
     const [isSelected, setIsSelected] = useState(false);
+    const [updateHover, setUpdateHover] = useState(false);
+    const [deleteHover, setDeleteHover] = useState(false);
 
-    const handleAvailChange = (event) => {
-      setIsAvail(event.target.checked);
-    };
 
     const handleSelectedChange = (event) => {
         setIsSelected(event.target.checked);
@@ -56,7 +54,7 @@ function MenuListRow(props){
     const UpdateButton = {
     width:"75px",
     height:"20px",
-    backgroundColor:"rgba(255,165,0,1)",
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
     boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -70,7 +68,7 @@ function MenuListRow(props){
     const DeleteButton = {
     width:"75px",
     height:"20px",
-    backgroundColor:"rgba(255,6,0,1)",
+    backgroundColor: deleteHover ? "rgba(255,26,0,1)" : "rgba(255,26,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
     boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -85,7 +83,7 @@ function MenuListRow(props){
 const AddButton = {
     width:"75px",
     height:"20px",
-    backgroundColor:"rgba(0,175,2,1)",
+    backgroundColor: updateHover ? "rgba(255,165,0,1)" : "rgba(255,165,0,.75)",
     borderRadius:"4px",
     border:"1px solid #C5C5C5",
     boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
@@ -143,13 +141,13 @@ const AddButton = {
             </td>
             {!(props.last) && 
             <td>
-                <button style={UpdateButton}>Update</button>
-                <button style={DeleteButton}>Delete</button>
+                <button style={UpdateButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)}>Update</button>
+                <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
             </td>
             }
             {(props.last) && 
             <td>
-                <button style={AddButton}>Add Item</button>
+                <button style={AddButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)}>Add Item</button>
             </td>
             }
         </tr>
@@ -248,7 +246,7 @@ const MenuListDiv = {
             </div>
             <div style={MenuListDiv}>
                 <table>
-                <th style={MenuListHeader} width="5%">Selected</th><th style={MenuListHeader} width="30%">Item</th><th style={MenuListHeader} width="50%">Recipe</th><th style={MenuListHeader} width="5%">Available</th><th style={MenuListHeader} width="5%">Cost</th><th style={MenuListHeader} width="5%">Price</th>
+                <th style={MenuListHeader} width="5%">Available</th><th style={MenuListHeader} width="30%">Item</th><th style={MenuListHeader} width="50%">Recipe</th><th style={MenuListHeader} width="5%">Cost</th><th style={MenuListHeader} width="5%">Price</th><th style={MenuListHeader} width="5%">Confirm</th>
                 {items.map((item) => (
                     <MenuListRow key={item.id} item={item} last={false}/>
                 ))}
