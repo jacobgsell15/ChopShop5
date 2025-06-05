@@ -53,6 +53,33 @@ function MenuListRow(props){
         textAlign:"center",
         padding:"2px"
     }
+    const UpdateButton = {
+    width:"75px",
+    height:"20px",
+    backgroundColor:"rgba(255,165,0,1)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    margin:"0px 10px 0px 12%",
+    fontSize:"12px"
+    }
+    const DeleteButton = {
+    width:"75px",
+    height:"20px",
+    backgroundColor:"rgba(255,6,0,1)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    fontSize:"12px"
+    }
 
     return(        
         <tr style={MenuListRowDiv}>
@@ -72,12 +99,6 @@ function MenuListRow(props){
                 />                    
             </td>
             <td><input
-                    type="checkbox"
-                    checked={isAvail}
-                    onChange={handleAvailChange}
-                />
-            </td>
-            <td><input
                     type="text"
                     name="cost"
                     style={MenuListRowInput2}
@@ -92,6 +113,10 @@ function MenuListRow(props){
                     value={inputs.price || props.item.price || ""}
                     onChange={handleChange}
                 />
+            </td>
+            <td>
+                <button style={UpdateButton}>Update</button>
+                <button style={DeleteButton}>Delete</button>
             </td>
         </tr>
     )
@@ -195,41 +220,12 @@ const AddButton = {
     margin:"0px 20% 0px 10px",
     fontSize:"12px"
 }
-const UpdateButton = {
-    width:"75px",
-    height:"20px",
-    backgroundColor:"rgba(255,165,0,1)",
-    borderRadius:"4px",
-    border:"1px solid #C5C5C5",
-    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
-    color:"#FFFFFF",
-    textAlign:"center",
-    fontWeight:"200",
-    padding:"0px",
-    margin:"0px 10px 0px 12%",
-    fontSize:"12px"
-}
-const DeleteButton = {
-    width:"75px",
-    height:"20px",
-    backgroundColor:"rgba(255,6,0,1)",
-    borderRadius:"4px",
-    border:"1px solid #C5C5C5",
-    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
-    color:"#FFFFFF",
-    textAlign:"center",
-    fontWeight:"200",
-    padding:"0px",
-    fontSize:"12px"
-}
     return (
         <div style={HouseDiv}>
             <div style={MenuDiv}>
             <div style={MenuHDiv}>
                 <button style={AddButton}>Add Item</button>
                 <b style={MenuH}>Menu Maintenance</b>
-                <button style={UpdateButton}>Update</button>
-                <button style={DeleteButton}>Delete</button>
             </div>
             <div style={MenuListDiv}>
                 <table>
