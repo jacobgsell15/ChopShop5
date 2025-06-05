@@ -64,7 +64,7 @@ function MenuListRow(props){
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
-    margin:"0px 10px 0px 12%",
+    margin:"0px auto 0px auto",
     fontSize:"12px"
     }
     const DeleteButton = {
@@ -78,8 +78,24 @@ function MenuListRow(props){
     textAlign:"center",
     fontWeight:"200",
     padding:"0px",
+    margin:"0px auto 0px auto",
     fontSize:"12px"
     }
+    
+const AddButton = {
+    width:"75px",
+    height:"20px",
+    backgroundColor:"rgba(0,175,2,1)",
+    borderRadius:"4px",
+    border:"1px solid #C5C5C5",
+    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
+    color:"#FFFFFF",
+    textAlign:"center",
+    fontWeight:"200",
+    padding:"0px",
+    margin:"0px auto 0px auto",
+    fontSize:"12px"
+}
 
     return(        
         <tr style={MenuListRowDiv}>
@@ -114,10 +130,17 @@ function MenuListRow(props){
                     onChange={handleChange}
                 />
             </td>
+            {!(props.last) && 
             <td>
                 <button style={UpdateButton}>Update</button>
                 <button style={DeleteButton}>Delete</button>
             </td>
+            }
+            {(props.last) && 
+            <td>
+                <button style={AddButton}>Add Item</button>
+            </td>
+            }
         </tr>
     )
 }
@@ -206,25 +229,10 @@ const MenuListDiv = {
     borderRadius:"8px",
     float:"left"
 }
-const AddButton = {
-    width:"75px",
-    height:"20px",
-    backgroundColor:"rgba(0,175,2,1)",
-    borderRadius:"4px",
-    border:"1px solid #C5C5C5",
-    boxShadow:"1px 1px 1px 1px rgba(0,0,0,.25)",
-    color:"#FFFFFF",
-    textAlign:"center",
-    fontWeight:"200",
-    padding:"0px",
-    margin:"0px 20% 0px 10px",
-    fontSize:"12px"
-}
     return (
         <div style={HouseDiv}>
             <div style={MenuDiv}>
             <div style={MenuHDiv}>
-                <button style={AddButton}>Add Item</button>
                 <b style={MenuH}>Menu Maintenance</b>
             </div>
             <div style={MenuListDiv}>
