@@ -7,7 +7,27 @@ function MenuListRow(props){
     const [isSelected, setIsSelected] = useState(false);
     const [updateHover, setUpdateHover] = useState(false);
     const [deleteHover, setDeleteHover] = useState(false);
+    const [currItem, setCurrItem] = useState(props.item);
 
+        const handleUpdate = (event, order) => {
+            if (currItem.id === item.id && currItem.id != null){
+                axios
+                    .put(`/api/items/${item.id}/`, currItem)
+                    .then((res) => this.refreshList())
+            }
+            else{
+                const uitem = {"id":"","description":currItem.description,"recipe":currItem.recipe,"price":currItem.price};
+                axios
+                    .post('/api/items/',uitem)
+                    .then((res) => this.refreshList())
+            }
+        }
+    
+        const handleDelete = (event, item) => {
+            axios
+                .delete(`/api/items/${item.id}/`)
+                .then((res) => this.refreshList())
+        }
 
     const handleSelectedChange = (event) => {
         setIsSelected(event.target.checked);
@@ -17,6 +37,7 @@ function MenuListRow(props){
       const name = event.target.name;
       const value = event.target.value;
       setInputs(values => ({...values,[name]:value}))
+      setCurrItem(values => ({...values,[name]:value}))
     }
     const MenuListRowDiv = {
         borderBottom:"1px solid #C5C5C5",
@@ -141,13 +162,13 @@ const AddButton = {
             </td>
             {!(props.last) && 
             <td>
-                <button style={UpdateButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)}>Update</button>
-                <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)}>Delete</button>
+                <button style={UpdateButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} onClick={(event) => handleUpdate(event,props.item)}>Update</button>
+                <button style={DeleteButton} onMouseEnter={() => setDeleteHover(true)} onMouseLeave={() => setDeleteHover(false)} onClick={(event) => handleDelete(event,props.item)}>Delete</button>
             </td>
             }
             {(props.last) && 
             <td>
-                <button style={AddButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)}>Add Item</button>
+                <button style={AddButton} onMouseEnter={() => setUpdateHover(true)} onMouseLeave={() => setUpdateHover(false)} onClick={(event) => handleUpdate(event,"")}>Add Item</button>
             </td>
             }
         </tr>
