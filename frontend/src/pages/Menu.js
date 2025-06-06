@@ -234,6 +234,7 @@ const MenuHDiv = {
     borderBottom:"1px solid #C5C5C5",
     width:"100%",
     height:"50px",
+    margin:"auto",
     padding:"10px 0 0 0",
     textAlign:"left"
 }
