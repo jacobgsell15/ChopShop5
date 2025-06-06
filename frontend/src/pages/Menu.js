@@ -19,7 +19,7 @@ function MenuListRow(props){
                 const uitem = {"id":"","description":currItem.description,"recipe":currItem.recipe,"price":currItem.price};
                 axios
                     .post('/api/items/',uitem)
-                    .then((res) => alert('Item Added'))
+                    .then((res) => window.location.reload())
             }
         }
     
