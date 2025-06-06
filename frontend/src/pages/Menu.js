@@ -222,7 +222,7 @@ const HouseDiv = {
 const MenuDiv = {
     border:"1px solid #C5C5C5",
     backgroundColor: '#FFFFFF',
-    width:"600px",
+    width:"100%",
     height:"450px",
     borderRadius:"8px",
     margin:"auto",
