@@ -13,20 +13,20 @@ function MenuListRow(props){
             if (currItem.id === item.id && currItem.id != null){
                 axios
                     .put(`/api/items/${item.id}/`, currItem)
-                    .then((res) => this.refreshList())
+                    .then((res) => props.signal(event))
             }
             else{
                 const uitem = {"id":"","description":currItem.description,"recipe":currItem.recipe,"price":currItem.price};
                 axios
                     .post('/api/items/',uitem)
-                    .then((res) => this.refreshList())
+                    .then((res) => props.signal(event))
             }
         }
     
         const handleDelete = (event, item) => {
             axios
                 .delete(`/api/items/${item.id}/`)
-                .then((res) => this.refreshList())
+                .then((res) => props.signal(event))
         }
 
     const handleSelectedChange = (event) => {
@@ -178,6 +178,11 @@ const AddButton = {
 function Menu(){
 
     const [items,setItems] = useState([])
+    const [reload,setReload] = useState(false)
+
+    const Signal = (event) => {
+        setReload(true);
+    }
 
     useEffect(() => {
         const fetchData = async () => {      
@@ -187,9 +192,10 @@ function Menu(){
                 .catch ((eror) => {
                     console.error("Error fetching data:", eror)
                 })
-        };        
+        };  
+        setReload(false);      
         fetchData();
-    }, []);
+    }, [reload]);
 
 
 const menu = [
@@ -269,7 +275,7 @@ const MenuListDiv = {
                 <table>
                 <th style={MenuListHeader} width="5%">Available</th><th style={MenuListHeader} width="30%">Item</th><th style={MenuListHeader} width="50%">Recipe</th><th style={MenuListHeader} width="5%">Cost</th><th style={MenuListHeader} width="5%">Price</th><th style={MenuListHeader} width="5%">Confirm</th>
                 {items.map((item) => (
-                    <MenuListRow key={item.id} item={item} last={false}/>
+                    <MenuListRow key={item.id} item={item} last={false} signal={Signal}/>
                 ))}
                 <MenuListRow item={[]} last={true}/>
                 </table>
