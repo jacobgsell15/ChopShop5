@@ -217,6 +217,7 @@ const HouseDiv = {
     padding:"30px 5% 30px 5%",
     width:"100%",
     height:"600px",
+    margin:"auto",
     TextAlign:"center"
 }
 const MenuDiv = {
