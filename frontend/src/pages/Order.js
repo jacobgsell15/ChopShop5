@@ -341,7 +341,7 @@ const EditOrderRowHouseDiv = {
                 <div style={EditOrderRowHouseDiv}>
                 {allAdd.map((item) => (
                     <>
-                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item - 1]} onClick={handleLIUpdate} onClick2={handleLIDelete}/> }
+                    {(item.order === props.workorder.id) && <EditOrderRow key={item.id} item={item} product={items[item.item]} onClick={handleLIUpdate} onClick2={handleLIDelete}/> }
                     </>
                 ))}
                 </div>
